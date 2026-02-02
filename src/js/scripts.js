@@ -217,7 +217,7 @@ const nextBtn = document.querySelector('.next');
 const track = document.querySelector('.slider-track');
 
 let autoSlideInterval = null;
-
+    
 // const slideWidth = slider[0].offsetWidth + 30; // ширина + gap
 // let isAnimating = false;
 // track.insertBefore(slider[slider.length - 1].cloneNode(true), track.firstChild);
