@@ -1,0 +1,626 @@
+@import components/mixine
+
+body
+    font-family: "Montserrat", sans-serif
+    font-weight: normal
+    padding: 0
+    margin: 0
+
+html
+    scroll-behavior: smooth
+    font-size: 0.7px
+    +media(1010)
+        font-size: 1px
+    +media(2040)
+        font-size: 2px
+
+h3 
+    +h3
+.flex-between
+  flex-wrap: nowrap
+  display: flex
+  justify-content: space-between
+.wrapper
+    max-width: 85%
+    margin: 0 auto
+.span
+    +span
+li, a
+    list-style: none
+    text-decoration: none
+    transition: all 0.5s ease
+
+.dark-bgc 
+    display: none
+    position: fixed
+    z-index: 2
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0, 0, 0, 0.3)
+    backdrop-filter: blur(4rem)
+.burger 
+    width: 50rem
+    height: 100%
+    cursor: pointer
+    padding-top: 28rem
+    padding-right: 15rem
+.bord 
+    display: block
+    margin: 4rem
+    width: 30rem
+    height: 5rem
+    border-radius: 2rem
+    background-color: #ffffff
+    transition: all 1s ease
++media(750) 
+    .burger 
+        display: none
+    .menu 
+        // background-color: rgba(110,69,226,0)
+        position: static
+        // display: flex
+        // justify-content: space-between
+        column-gap: 10rem
+        // +media(750)
+        display: block
+    // .menu 
+        padding-left: 0rem
+        padding-right: 0rem
+        li 
+            margin-bottom: 0rem
+            padding: 15rem 10rem
+        ul
+            display: flex
+            justify-content: space-between
+header 
+    // background-image: url(../img/startupbc.jpg')
+    +dark('../img/startupbc.jpg')
+    background-size: 110%
+    position: relative
+    // padding-top: 20rem
+    .fixed
+        background-color: rgba(192, 48, 28, 0.3)
+        position: fixed
+        width: 100%
+        z-index: 2
+    // .menu
+    //     padding-left: 7%
+    //     padding-right: 5%
+        // .logo
+        //     p
+        //         font-size: 24rem
+        //         font-weight: 500
+    //     ul
+            // padding-top: 25rem
+            // column-gap: 50rem
+        // a
+        //     padding-top: 5rem
+        //     font-size: 14rem
+        //     letter-spacing: 0rem
+        //     line-height: 24rem
+        //     color: #ffffff
+        //     font-weight: 100
+        //     font-weight: normal
+    .navigation
+        .logo
+            padding-left: 30rem
+            p
+                font-size: 24rem
+                font-weight: 500    
+                color: #fff
+    .menu
+        position: absolute
+        position: fixed
+        top: 0
+        left: -100%
+        z-index: 2
+        transition: all .5s ease
+        background-color: #c0301c
+        // width: 50%
+        height: 100%
+        padding-left: 30rem
+        padding-right: 80rem
+        ul
+            // padding-top: 20rem
+            padding-top: 25rem
+            column-gap: 50rem
+        li
+            margin-bottom: 20rem
+        a
+            padding-top: 5rem
+            font-size: 14rem
+            letter-spacing: 0rem
+            line-height: 24rem
+            color: #ffffff
+            font-weight: 100
+            font-weight: normal
+    
+    .welcome
+        padding-top: 310rem
+        padding-bottom: 250rem
+        h1 
+            font-size: 48rem
+            line-height: 24rem
+            text-transform: uppercase
+            color: #ffffff
+            font-weight: 100
+            text-align: center
+            font-weight: 500
+        p
+            +p
+            text-transform: uppercase
+            color: #ffffff
+        .a 
+            padding-top: 50rem
+            a
+                +a
+                padding: 15rem
+            a:hover
+                +hoverA
+
+.popap
+    position: fixed
+    z-index: 2
+    display: none
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background-color: #fff
+    width: 500rem
+    height: 520rem
+    filter: drop-shadow(0 0 5rem rgba(192, 47, 28, 0.2))
+    // transition: all .5s ease
+    .p
+        font-family: "Roboto Slab"
+        color: #555555
+        font-size: 50rem
+        padding: 30rem
+        margin: 0
+    .inputs
+        padding-top: 20rem
+        padding-left: 30rem
+    input
+        margin-bottom: 20rem
+        width: 350rem
+        height: 44rem
+        border: 1rem solid #555555
+        padding-left: 15rem   
+    input::placeholder
+        font-size: 12rem
+        line-height: 20rem
+        text-transform: uppercase
+        font-weight: 400
+        font-family: "Roboto Slab"
+        color: #555555
+    input[type=submit]
+        font-size: 12rem
+        letter-spacing: 1rem
+        line-height: 20rem
+        text-transform: uppercase
+        color: #555555
+        font-weight: 400
+        font-family: "Roboto Slab"
+        width: 170rem
+        height: 44rem
+        background-color: #fff
+        border: 1rem solid #555555
+        transition: all 0.5s ease
+    input[type=submit]:hover
+        background-color: #c0301c
+        color: #fff
+    input:focus:not(input[type=submit])
+        outline: none
+        border: none
+        border: 1rem solid #c0301c
+        filter: drop-shadow(0 0 2.5rem rgba(192, 47, 28, 0.184))
+    .x
+        color: #5c5c5c
+        font-size: 20rem
+        position: absolute
+        margin: 0
+        top: 30rem
+        right: 40rem
+
+.servises
+    padding-top: 50rem
+    .p
+        padding-top: 15rem
+        position: relative 
+        +p
+
+.cards
+    padding-bottom: 100rem
+    flex-wrap: wrap
+    justify-content: center
+    column-gap: 50rem
+    +media(1024)
+        justify-content: space-between
+        flex-wrap: nowrap
+        column-gap: 0
+    .top
+        padding-top: 30rem
+        +media(1024)
+            padding-top: 0
+    .typography
+        .svg
+            text-align: center
+        svg
+            .a
+                fill: #c0301c
+            .b
+                fill: #fff
+            // fill: #fff
+    .rock
+        .svg
+            text-align: center
+        svg
+            .b
+                fill: #c0301c
+            .a
+                fill: #fff
+    .expert
+        .svg
+            text-align: center
+        svg
+            outline: 3rem solid #dddddd
+            outline-offset: 18rem
+            border-radius: 50%
+            margin: 20rem
+            .a
+                fill: #c0301c
+    .card
+        text-align: center
+        ul
+            padding: 0
+        p
+            +p
+            text-transform: uppercase
+        .second
+            display: none
+        li
+            +p
+            font-size: 14rem
+            font-family: "Roboto Slab"
+.abouts
+    padding-bottom: 100rem
+    .p
+        +p
+        position: relative
+        padding-top: 15rem
+    .texts
+        flex-wrap: wrap
+        padding-bottom: 30rem
+        justify-content: center
+        +media(1024)
+            flex-wrap: nowrap
+            justify-content: space-between
+        .ul
+            padding-top: 30rem
+            +media(1024)
+                padding-top: 0
+        li
+            +p
+            font-size: 14rem
+            font-weight: 400
+            font-family: "Roboto Slab"
+            text-align: left
+    .slider-wrapper
+        position: relative
+    .viewport
+        overflow: hidden
+        width: 1350rem
+    .slider
+        flex-wrap: wrap
+        justify-content: center
+        +media(1440)
+            flex-wrap: nowrap
+            justify-content: space-between
+        p
+            +p
+            margin: 0
+        .card 
+            img
+                // position: relative
+                height: 100%
+        .svgs
+            display: none
+            position: absolute
+            // padding-bottom: 20rem
+            // top: 0
+            // left: 50%
+            // transform: translate(-50%, -50%)
+            svg
+                padding: 10rem
+                fill: #fff
+                border: none
+                
+            svg:hover
+                background-color: #c0301c
+        .name
+            text-transform: uppercase
+            font-size: 14rem
+            padding-top: 10rem
+        .job
+            padding-top: 5rem
+            font-size: 13rem
+            font-family: "Roboto Slab"
+    .nav 
+        opacity: 0.5
+        position: absolute
+        top: 50%
+        transform: translateY(-90%)
+        background: #555555
+        color: #fff
+        border: none
+        font-size: 24rem
+        width: 40rem
+        height: 40rem
+        cursor: pointer
+        z-index: 10
+    .prev 
+        left: 40rem
+    .next 
+        right: -40rem
+
+.works
+    padding-bottom: 50rem
+    .ul
+        padding-bottom: 30rem
+        padding-top: 15rem
+        justify-content: center
+        column-gap: 20rem
+        li
+            +p
+            font-family: "Roboto Slab"
+    .workplaces
+        flex-wrap: wrap
+        // max-width: 95%
+        justify-content: center
+        column-gap: 20rem
+        img
+            display: none
+            padding-bottom: 20rem
+.doyou
+    // background-image: url("../img/startupback.png")
+    +gradient('../img/startupback.png')
+    background-size: 110%
+    // +gradient("../img/startupback.png")
+    padding-top: 100rem
+    padding-bottom: 80rem
+    h2
+        margin: 0
+        font-size: 30rem
+        line-height: 44rem
+        color: #ffffff
+        font-weight: 400
+        font-family: "Roboto Slab"
+        text-align: center
+    .a
+        text-align: center
+        padding-top: 50rem
+        a
+            +a
+            padding: 15rem
+        a:hover
+            +hoverA
+.posts
+    padding-top: 50rem
+    padding-bottom: 100rem
+    .p
+        +p
+        padding-top: 20rem
+    .blogs
+        padding-top: 20rem
+    .recent 
+        margin-bottom: 50rem
+        .between
+            +media(1440)
+                flex-wrap: nowrap
+                display: flex
+                justify-content: start
+                column-gap: 30rem
+        img
+            height: 100%
+            max-height: 320rem
+        .info
+            padding-top: 15rem
+        ul
+            // justify-content: center
+            margin: 0
+            padding: 20rem 0
+            li
+                +p
+                font-size: 14rem
+                text-align: left 
+        .start
+            column-gap: 20rem
+            flex-wrap: nowrap
+            display: flex
+            justify-content: start
+        .date
+            max-hight: 40rem
+            padding: 10rem 15rem  
+            background-color: #f8f8f8
+            border: 2rem solid #555555
+            .month
+                padding-top: 5rem
+                font-size: 14rem
+                font-weight: 600
+            p
+                font-size: 24rem
+                letter-spacing: 2rem
+                line-height: 20rem
+                text-transform: uppercase
+                color: #777777
+                font-weight: 100
+                text-align: center
+                font-weight: 500
+                margin: 0
+        .title
+            p
+                +p
+                text-align: left
+                margin: 0
+                transition: all 0.5s ease
+            p:hover
+                color: #c0301c
+            .by
+                font-size: 13rem
+        .read
+            a
+                font-size: 13rem
+                letter-spacing: 1rem
+                line-height: 24rem
+                text-transform: uppercase
+                font-weight: 400
+                color: #777777
+                font-family: "Roboto Slab"
+            a:hover
+                color: #c0301c
+        .more
+            display: none
+.google
+    .firm
+        flex-wrap: wrap
+        justify-content: center
+        column-gap: 60rem
+        align-items: center
+        img
+            padding-top: 30rem
+            height: 100%
+    .p
+        padding-top: 50rem
+        padding-bottom:  20rem
+        p
+            +p
+            margin: 0
+        .john
+            padding-top: 20rem
+            font-size: 18rem
+            font-weight: 500
+    .circle
+        display: flex
+        justify-content: center
+        padding-top: 20rem
+        svg
+            max-width: 20rem
+.get
+    padding-bottom: 50rem
+    .p
+        +p
+        padding-top: 20rem
+    .cg
+        padding-top: 30rem
+        column-gap: 200rem
+        // justify-content: space-between
+        +media(1024)
+            flex-wrap: nowrap
+            display: flex
+            justify-content: space-between
+    .flex-center
+        display: flex
+        // justify-content: space-between
+        // row-gap: 0
+        column-gap: 50rem
+    svg
+        padding-top: 5rem
+        fill: #555555
+    .flex
+        display: flex
+    .addres, .hotline
+        padding-bottom: 50rem
+    .email
+        padding-bottom: 30rem
+        +media(1024)
+            padding-bottom: 0
+    .center
+        justify-content: center
+        +media(1024)
+            justify-content: start 
+    .inner
+        // justify-content: center
+        padding-left: 15rem
+        .info
+            font-size: 14rem
+            line-height: 30rem
+            text-transform: uppercase
+            padding-left: 5rem
+        p
+            margin: 0
+            font-size: 12rem
+            line-height: 20rem
+            color: #555555
+            font-weight: 400
+            font-family: "Roboto Slab"
+            // text-align: center
+    .inputs
+        flex-wrap: wrap
+        // .td
+        input
+            margin-bottom: 10rem
+            // padding-top: 20rem
+            width: 350rem
+            height: 44rem
+            padding-left: 15rem   
+        input::placeholder
+            font-size: 12rem
+            line-height: 20rem
+            text-transform: uppercase
+            font-weight: 400
+            font-family: "Roboto Slab"
+            color: #555555
+        .text
+            width: 770rem
+            // width: 85%
+            height: 104rem
+        input[type=submit]
+            font-size: 12rem
+            letter-spacing: 1rem
+            line-height: 20rem
+            text-transform: uppercase
+            color: #555555
+            font-weight: 400
+            font-family: "Roboto Slab"
+            width: 170rem
+            height: 44rem
+            background-color: #fff
+            border: 1rem solid #555555
+            transition: all 0.5s ease
+        input[type=submit]:hover
+            background-color: #c0301c
+            color: #fff
+        p
+            font-size: 12rem
+            line-height: 20rem
+            // color: #c0301c
+            color: #555555
+            font-weight: 400
+            font-family: "Roboto Slab"
+        input:focus:not(input[type=submit])
+            outline: none
+            border: none
+            border: 2rem solid #c0301c
+            filter: drop-shadow(0 0 2.5rem rgba(192, 47, 28, 0.184))
+footer
+    background-color: #c0301c
+    .footer
+        padding-top: 70rem
+        padding-bottom: 50rem
+        .svg
+            display: flex
+            column-gap: 20rem
+            justify-content: center
+            padding-bottom: 30rem
+        svg
+            outline: 2rem solid #ffffff
+            outline-offset: 5rem
+            border-radius: 50%
+        .span
+            background-color: #fff
+        p
+            +p
+            color: #fff
+            padding-top: 10rem
+            font-size: 12rem

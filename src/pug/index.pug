@@ -1,0 +1,205 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title startup - your favourite creative agency template
+        link(rel="stylesheet", href="css/styles.css")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    body 
+        include components/mixin
+        .dark-bgc
+        header
+            .fixed.mb.flex-between
+                +menu(mainMenu)
+                .burger
+                    .bord.b3
+                    .bord.b3
+                    .bord.b3
+            .wrapper
+                .welcome
+                    h1 Welcome to STARTUP
+                    p your favourite creative agency template
+                    p.a
+                        a.getstarted Get Started
+            .popap 
+                p.p Authorization
+                .inputs
+                    input(type="text" placeholder='Your Name')
+                    input(type="email" placeholder="Your E-mail")
+                    input(type="text" placeholder="Your Number")
+                    input(type="text" placeholder="Your Password")
+                    input(type="submit")
+                span(id="closePopup").x x
+        .servises.wrapper
+            h3 servise 
+            span.span
+            p.p We offer ipsum dolor sit amet, consetetur sadipscing elitr amet
+            .cards.flex-between
+                .typography.top
+                        p.svg
+                            <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90" width="90" height="90"><style>.a{fill:#c0301c;stroke:#ddd;stroke-miterlimit:100;stroke-width:2}.b{fill:#fff}</style><path fill-rule="evenodd" class="a" d="m45 0c24.9 0 45 20.1 45 45 0 24.9-20.1 45-45 45-24.9 0-45-20.1-45-45 0-24.9 20.1-45 45-45z"/><path class="b" d="m42.7 36.2c1.9 3.8 3.4 7.8 4.8 11.8q-0.7 0-1.5 0c-2.5 0-5.1 0-7.7-0.1zm-18.7 28.8c1.6 0 3.2-0.1 4.9-0.3 0.3-0.1 0.8-0.3 1.2-0.3 3 0 6 0.6 9 0.6q0.1-0.4 0.1-0.7 0-0.8 0-1.5c-1.5-0.3-5.3-0.3-5.3-2.3 0-1 2.6-7.9 3.3-9.4l11.6 0.1c0.4 1.1 3.7 8.8 3.7 9.7 0 1-1.3 1.2-2 1.3l-3.4 0.8q-0.1 1-0.1 2c3.4-0.1 6.8-0.4 10.1-0.4 3.3 0 6.6 0.4 9.9 0.4 0-0.2 0-0.4 0-0.7 0-0.5-0.1-0.9-0.1-1.4-1.3-0.5-3.6-0.7-4.5-1.3-0.4-0.3-0.7-1.1-0.9-1.5-1.3-2.7-2.2-5.5-3.4-8.2-1.9-4.6-3.7-9.2-5.6-13.8l-5.3-12.5q-0.2-0.3-0.3-0.6h-1.4-1.9l-7.3 18.9-6.1 16c-1.1 2.8-3.7 2.3-6.1 3.1z"/></svg>
+                        +card(cardInfo.typography)
+                .rock.top
+                    p.svg
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 90 90" width="90" height="90"><style>.a{fill:#fff;stroke:#ddd;stroke-miterlimit:100;stroke-width:2}.b{fill:#c0301c }</style><path fill-rule="evenodd" class="a" d="m45 0c24.9 0 45 20.1 45 45 0 24.9-20.1 45-45 45-24.9 0-45-20.1-45-45 0-24.9 20.1-45 45-45z"/><path class="b" d="m35.6 57.7c0.4-0.4 0.4-0.9 0-1.3l-11.3-11.4 11.3-11.4c0.4-0.4 0.4-0.9 0-1.3l-1.4-1.5c-0.4-0.4-1-0.4-1.4 0l-13.4 13.5c-0.4 0.4-0.4 1 0 1.4l13.4 13.5c0.4 0.4 1 0.4 1.4 0zm17-31c0.2-0.4-0.1-1-0.6-1.1l-1.8-0.5c-0.5-0.2-1 0.1-1.1 0.6l-10.8 37.5c-0.1 0.4 0.1 1 0.6 1.1l1.8 0.5c0.5 0.1 1-0.1 1.1-0.6zm19 18.8c0.4-0.3 0.4-0.9 0-1.3l-13.4-13.5c-0.4-0.4-1-0.4-1.4 0l-1.4 1.4c-0.4 0.4-0.4 1 0 1.4l11.3 11.4-11.3 11.4c-0.4 0.3-0.4 0.9 0 1.3l1.4 1.4c0.4 0.4 1 0.4 1.4 0z"/></svg>
+                    +card(cardInfo.rock)
+                .expert.top
+                    p.svg
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 49" width="48" height="49"><style>.a{fill:#c0301c}</style><path class="a" d="m24 0.9c-13.3 0-24 10.7-24 24 0 13.2 10.7 24 24 24 13.2 0 24-10.8 24-24 0-13.3-10.8-24-24-24zm0 3.4c3.5 0 6.8 0.9 9.7 2.4l-5.2 5.2c-1.5-0.5-2.9-0.8-4.5-0.8q-2.3 0.1-4.5 0.8l-5.2-5.2c2.9-1.5 6.2-2.4 9.7-2.4zm-18.2 30.2c-1.5-2.9-2.4-6.2-2.4-9.6 0-3.5 0.9-6.8 2.4-9.7l5.2 5.2c-0.4 1.4-0.7 2.9-0.7 4.5q0 2.3 0.7 4.4zm18.2 10.9c-3.5 0-6.8-0.9-9.7-2.4l5.2-5.2q2.2 0.8 4.5 0.8c1.6 0 3-0.3 4.5-0.8l5.2 5.2c-2.9 1.5-6.2 2.4-9.7 2.4zm0-10.3c-5.7 0-10.3-4.6-10.3-10.2 0-5.7 4.6-10.3 10.3-10.3 5.7 0 10.3 4.6 10.3 10.3 0 5.6-4.6 10.2-10.3 10.2zm13-5.8q0.7-2.1 0.7-4.4 0-2.4-0.7-4.5l5.1-5.2c1.6 2.9 2.5 6.2 2.5 9.7 0 3.4-0.9 6.7-2.5 9.6z"/></svg>
+                    +card(cardInfo.expert)
+        .abouts.wrapper 
+            h3 about us
+            span.span
+            p.p Lorem ipsum dolor sit amet, consetetur sadipscing elitr amet
+            .texts.flex-between
+                ul
+                    li Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sediam nonumy eirmod
+                    li tempor invidunt ut labore et dolore aliquyam erat, sed diam voluptua. At vero eos et
+                    li accusam et justo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata
+                    li sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor et dolore aliquyam erat.
+                    li Lorem ipsum dolor sit amet. Lorem ipsum eat.
+                ul.ul
+                    li Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sediam nonumy eirtempor 
+                    li invidunt ut labore et dolore aliquyam erat, sed diam voluptua. At vero eos eaccusam 
+                    li et justo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est 
+                    li Lorem ipsum dolor sit amet. Lorem ipsum dolor et dolore aliquyam erat. Loreipsum 
+                    li dolor sit amet. Lorem ipsum dolor et.
+            .slider-wrapper
+                button.nav.prev <
+                .viewport
+                    .slider-track
+                        .slider.flex-between
+                            .slide 
+                                +persons(personnel.head)
+                            .slide 
+                                +persons(personnel.rubbel)
+                            .slide 
+                                +persons(personnel.shamim)
+                            .slide 
+                                +persons(personnel.john)
+                button.nav.next >
+        .works.wrapper
+            h3 Latest Works
+            span.span
+            ul.ul.flex-between
+                li.li.all All
+                li.li.brandings Branding
+                li.li.designs Design
+                li.li.developments Development
+                li.li.strategys Strategy
+
+            .workplaces.flex-between
+                img(src="img/hair.png").hair.brandings
+                img(src="img/bird.png").bird.designs.brandings
+                img(src="img/desktop.png").desktop.developments.strategys
+                img(src="img/camera.png").camera.designs
+                img(src="img/bicycle.png").bicycle.brandings.designs
+                img(src="img/notebook.png").notebook.strategys.developments
+                img(src="img/workplace.png").workplace.developments.strategys
+                img(src="img/design.png").designs
+                img(src="img/events.png").events.developments
+
+        .doyou
+            .wrapper
+                h2 Do you like OUR WORK so far?
+                h2 Let's talk about YOUR PROJECT!
+                //- p kuykufjf
+                p.a
+                    a Get in Touch
+        .posts.wrapper
+            h3 recent blog posts
+            span.span 
+            p.p Lorem ipsum dolor sit amet, consetetur sadipscing elitr amet
+            .blogs
+                +blog(post.ideas)
+                +blog(post.user)
+        .google.wrapper
+            //- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 141 27" width="141" height="27"><defs><image  width="141" height="27" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAAbCAMAAAB2v/zJAAAAAXNSR0IB2cksfwAAAsdQTFRFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVzH2tnAAAAO10Uk5T4PDx7eHFcBMAZ9/0uFPR+vXv+PdANdzn1IUPDWtkVHgRMC3/YWqKxP1bjWhjaU0CrLNOHxAjVsKQSVlso+wgDoMXecMs1wcI1ikcqXSMx0NaqAwVbz1RWDTyk0KJ/qUod0c+Kra76NPb6jFmliIWSqH7QY9VPK17J3Gg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"/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+            //- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 121 49" width="121" height="49"><defs><image  width="121" height="49" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAAxBAMAAAAM3xt7AAAAAXNSR0IB2cksfwAAADBQTFRFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV4J+CDQAAABB0Uk5TADN3ZkRV/6oiu8wR7pmI3SXX3SgAAAUiSURBVHicnVZ9TFtVFD+vfS0tBUbMskSybNWYJ0F0xChsyEcV1ikhpiaMAS1fpXRmoDYmw0EW0xhCIltmgfFgMPBtIU/TKBKCixLsCnMLwbg0EQh2aviLJWpMjRlLyoee814LdFkr5f7xPs7v/s4993zdy0D08cQhXwyUBrP1UZT6pzcCUtiYK7tja57Kx2deimkHlJ0Fc/+zuMxmu+VploJtROMRIMOxC7bmUniNM1lbSHKlZSQo7IKdmQvQoDW3ekHTvYV0LPvL53bBTq4E9dnDaMJdF/i9YYQr5sXJXbAXXXB7gX6UDZDoCiOrzWJNbh2wC2uZsdi49IV98h/vqzKEgUbFgG1yGcpTd9jzGDZnYI2m8VZanTNs+SmlIvegO80JohdQR1Q20wi9Kt3g1HAkO9HSZjzRA3BHiMlOtIA7oLCtE1v04k7lcWPsQdP1fnKKutgUnZ2dhURt9eZVyWuh7NIcVevTl2hRz73C9GhkZK86Gl+GpKq1TyUP8JJUYZNe5w1HvorKlNiqetxX2YvLQYF5IQfMhZI0pSIEh7RFZSfUQlq7Fa3O+hFAey0AMH6/z9c+KZvLjBw6bwaleDpw7Ew1yJgEjD/8ALfFqOuYK+h2aahvYthU04Jm4jewA+sHSPBUo1c6ltuetqkvb2FAmUHRYYx6hPMySKKcoZhnU6G4A3awHgVy/b+DKEosdaMsjElb60xFNmdAf+maAnKqS35/ux/8szXw+xj+lqeqemHFOXnDBSWmEOYlsaSEaQmQCZzBz3e9QXE16pm3RqGkzAoDpGzRhTXO+2YKAC0PYSaq/Y0hcgvvowThDANTbqlCVh25jfXqy2yIverAoNvh/pOg7JMxkmOGSY0D2fRedA0kV5I6NC7tI5uyj7VquyhratBCfCxznc3DMkbyFSdIKc2IXmLz87yygeT7TiX0aNHPmhpci5ShwWiHYYrdGJIxlKMaoNwMr83/1CctAwdMiv6kKrTCLrG11dhXabJ1ePOqjGH74Qx530t1EWKvNg9jNeEWV5ydqR3LqFhmHzDhLMpbz2uqXhlbH1bY2DdHEVYUMJJTwY6TJD30oDpNrqQkVd4SUNHhE6B+fTwoyNjm1UXX8ZN2bRd7fQDjje2EacRJUnHTDNEbFDgDRkbzbgD3x84IsHHNqui3A2EKsQJr1g5D/zj8mGuKftwZEo16zBuscKsN1sqxts5yCy7yDiqCzv3WddMEEBYU61heZwaDF/xMUhUanVCLRksOuSNozjkp0HUUEXA5mNkc5QbMzVvpl7CMiyXq+btUhJpuJoXsmHKjw7A7enQ5KE342AFqsQy/LO16rJ3v8jGW9nBVvve3GGQvoq+UnwUYDNTxkytO7H+sNYS3taTCK7WiFyx/1Z4CeD/DhhFsCainj4E2x1snmFVk1+miAPaWFaf2w1YpPC0BivBGc7ryVmYKeDS/pJiY3nnPku5C0AGf3JteOJJ/8wcHsMZffwa26TmKN0x+AaHMoa/n34nZTL79Ek3Tg6boa7l5gG4QK05uus82ibMxyTT3UtL2P54Gns8jTt5Y42AJaF/d0Z/pHJsQLFE7dsRgbgsQcZ9gos18/NLah1J17IWt+6NltFTy717YiRbzg7GI60Q87EV+hMvaPuDjY6vqN4Z4X8Q1Kg72lLvtGSudCXtic8biyuoIl8fDXj3XzRnwvN0TW2dez1x65B4Rx9pU4Qk9EaI42Lwv4i4ZJzutFArNkaJ4smX/S988IvkPCMLyQTyAtqoAAAAASUVORK5CYII="/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+            //- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 142 17" width="142" height="17"><defs><image  width="142" height="17" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAAARCAMAAAA8E2SsAAAAAXNSR0IB2cksfwAAAohQTFRFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV7u9ngwAAANh0Uk5TAAYBu4R0vwOIvJRSfzxeimXNJh5ZVpGyr7GwtjkSq62sjl0PJLOpCaK4lv9aSBjogchf2USZAhF8m/pqH+1tP1Ez0z0t4IDJcCD+nPhDWNrYlUtTVBt9Ng3Dpdf9Ixbx5OfywOMpxBA1K1sK6g7dR7rlBfQiYqFJ0LVppCHO3PDLfua3Y9vKi/wsL+LPHeFNOyoc7wRCenf7nnjpMY92zBM3nXPFLgzeqPbrXDCnZIemk6DRJ/cIcSiSZ3u5F8e9TlVyn8bC0oMlbobubAvVSvV535qjbzpm7quENAAABPJJREFUeJyt1XtQFVUcB/DvuTxDXhdHAgxBkgQBE8VBiRFKIiQgEhheokAkDCIgoqSSgkASGo+IHCVmQihuVDCKpahEPBoRFakQaQCNCXVEJiFRuSTczj7u3nsL7owznT92zvntb89+dvf8zhL8D43IZg2LZp59Jg3yVGmoRYiU6+kSkMd8VE8G0SMhR38amg9h+De0x+nIWDo9j/zJxOeTUZWpF4zKTAltTF8mIsOWZEoHkOrS0CATW0I7v3GpdoT0chwHkB5hBqcZDHCc5dP0IB3gwi8/hVa3kOQ8BZ0u6C2G7lXA5QnVkk4m7jph0KGkWfvXjRm3cWFo/JP7A3nfhLTSo8coJlkXPO8Dps0s57V7MGvi07zuwqKV43jfpof7I1z8jWFYnhUmttLH74+YhJtPsIEMwfo7/oTfLZsGIStgcMlJBPa/RBqZkQ8hX4c8GjI0ALrHbAGHWiC0x2iRhM0N/4U+8pcsJ7IbzqSKjW4mV7C6huPEMA/s2tOpjrOmQhR7Ectr+LjOujtwK+cHBovwynGsmhT9KlwX0gv3Y0wn4fIk1h1VcFwn4NE97lnGc/AqKWW62+lb4jkpF9gZXjyljvPgTup5eJNCOSfqInxq/2D76WcA7WuU43tYmeP4FdsL07v0ZoGCk3HaP3/Pqbc+kHPw/A/0oGEHgWMvQmDTQ2ZGNZzhFaOwWpkrj+tEdG6sCzrIPsambzbWhWRRzsj9WTjIrg3dr+DkSMIz51lH7OM4zvSekXtxqBqIquI4Jub002U4AFt2q+FE148HtTULcZ13m8U+NTHpwEekIo6U33lAOcaW7LnaGRVOyXHEJ8s56WcSSBJ2nEvcxnHc9llgIqMMQeaklOMc+xjeRbDVRspWNRyG0AUF55PiHXEVhdN9KC/eGbvAND0GkXw9OotLVTifH8buLXLOiQ+HJoCq/D2buI+1l+SxSRpLe7mPtdT2FrYlMkXMPKs6TmZZuzLHqwSSnKQccdo7MF7IcraLaZn4mdRJVDibryo4aSPXNGhlWRrSF8Zybo/536Q5WSFBfRzHeCFM2mjk/TpkB8/NeWF0Epr2EiUOU+i0Jg8GAbu+p5xVkznBWsC2Mqnq2qErXTrAc1ZKufVmIc59m+WEZ8JRhrxAyDmSHGgma8Go5B4OBczNGbaie2W+/784pzNWfAGBw9cmVDnBNwqIL895r+HIBiZ2dmfCdpbDFGNjId2u5llznCTF+jTK9GU5Rd7/5bxefD6VLksvVQ6KndYrOLMWOt3Y6W7FceiqLmX/I4kilHnKOWzjOS2JUDT66hjOUU8tZlSf1ang9E+hLQFIjlflcI3nKP2BKEfMrTR6bVYIz1n9WHGv/qnZOO3xiKyPo+PPirei3I3lBOtfZzJ8Z8JUfhJ4zoamrZ2b8+SmMmekYcy49USohP3ELCdt/W7r/QeY09kkBrHkcjQqXfgLElsQpZ9UWUCLbxUXoVsPvUWNsNUhehe0beHxKRbrwT+fBrqi5B6dJah2FhKvbKGpdHITW3aYPOY530w4GXnyEvsfmRz8OcK5Wh7d/+000aiGhQc/TlkDy7RO/bBk4sRHlkkuZI/DrEh+hYPIkcaud5Tg+jRoH4jvrGycEKcynAN+msuEO7bk9tyFRnXfoDs3lvzY1GFzbkPrujxHu2B7JlJgeaRLZt7YLiyNgFyXfwAkBhfr5qtMMwAAAABJRU5ErkJggg=="/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+            //- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 109 21" width="109" height="21"><defs><image  width="109" height="21" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAAAVCAMAAAB7V5DIAAAAAXNSR0IB2cksfwAAApRQTFRFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVYUUc4gAAANx0Uk5Tn8vKv7eQWwgA5P/nVd09s+76+MgBLNYXFU7y9goDBc2KEgZeKyQtGUaUxuboz65tGwkqKSgfHXZrNR4iJ1p/ajgm0GyMlTb+hFx+OszAwXDpFqTgM7bYZMmh3AubO8PEe+Lh4/O83/zUPkHF17tgqHR8Sqa9iUsv0tuacq0Q+UCsIy7HztlvU+uNh/H05TQHE3h6YVavdxztkvAETzyGTd4C0exE2iWPXbqZboVikw65Q7Fx+/1SmKLTEdWlnDdYo55JlvfqDO9Ci6dFglBjSGYUnYOrDyGOX2e0P6P4JJMAAAR+SURBVHictVV7UJRVFD9HwV2apd2cIKMJRGtSHCpRC4aoXBacjefggCwzzMpDiNYFe8BIhoiKQiHIY1ESWIdBWHnD5AMwSBnBzGTGnDLsMSgzITGGFaFbQOfeb4GP1f5quH/c8zv3nnN+3z333PMhIIIwphchG7CAA+3mh0f8ZyHZ7CetVmzMC8gmRyG6BO8LK3bjC8j2JPLoMnZlYww9gaOPtHTAkf/PJpX/wWPdAVjGw0nlvzDhNOpw23kInqXaGQRYjpZxg7ZW81oaXP7Niz+7kDroeo05rB52RuwHj5vyp75m+noyQrxkxeb1JZOevQDefQytGP6TuFb0TRP2RuyB1wdeGPrRYi7x6gLw7eZYec7vcw5UHTRtQjY/CMazoD4FEIin+F4gtj6CTXkOZKo2hkKaARTKljkTr2XNIoewBghv5GjlzYgGDsJPAkTWCdtb0ASaEzBlM+sQIvKeYYuiY1eTjL5/gRIZ/Jko/ptdW6tEqtYYe5yDmIr4Sg7ijoHLbY782fkgtMnthsghwvQQ28xYeY8uL6Gc421YwZ6H43BS2XOqZoX0soStJhnWbKxk9Ws3rh87/ZvAllzCtvSFnp5FACkFZilTdyDmM/n+J//F9oFZkgtChtJyID2XpK5YrhiENSEHIC2P1PRsAA3lDj7cD5CRLbAJyY2oRYgyQYB7DtM+2guw82MCGVnWbLsRr3XxFwCbzuzLZNLjCsD+3QB/SWHtwARViE6eaWHLzgChjMNaBDYnZQ3/1haNBItSMJ0pOfURiKkE8t6zZgsmtwLkywUp/AyHUQ9QYm5XynSl20Wnp5oo/p2xUWGB7aTABkd0lu3SyrhEn4vidNHFW7MdTaBp0pbBZGNeIoksx0SLTXmC2HeWbYKusWKbhQ3CHzdaDCQHTF/NY/Nrn2OrjJ9lM8YxqHZbxWLAK/xlbm6E6BMklxz9bqB1hq3wJwKRlLwoVm9GLcgeGylbvKRBKGVzrZaJqkp6uOsMtYWadymM7fEdTSMoLUuyyuT09CGWbYitvweyT6u0mj17eX4BFrHlmkiQhbHHAqu+PVnaQ9IUARsCbL8PCgd1EMt53XZDOImGMG6kZZeY03MGYJcberryL6YqcY8TqsS3sySZg6i7CU3V0IzDb5PS2is/zDtb5A9a3d/8LWg0D1hUcC0KyEtjH3Ts+gbetFLvVjBR0h2D+Fa0Iz2AdjVbqEbFQz+Ys/6w66BIb8/q5bLD37JQkJKbPt9lyqDnUir8R6ZOB4o2OwdjhdqlNubyqxXZHir6rqq57rH4acX1+RbrL9f251k2O3x5+C+UVFaZlv3uN+D8RpF9sQ5MUQyoMKFaHGifD/owWTbsLZwEz/fr4aKZx8SeINY6qLlAoLyWoYn8Z7Zytj5vKoi1vAXV33mH5kvjfkJESY3TqwD2/Ldmg14757hGh8pnTyqX1UwsxStjPGdt2YaXGm/5rnPmPeh5D4CDHfnloQ4vg5qzbWmj1z+iv6qPvxUac5X7d5le64TUySMXhJZpr6prd3H/FymFcrS5tbFbAAAAAElFTkSuQmCC"/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+            //- <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 123 46" width="123" height="46"><defs><image  width="123" height="46" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHsAAAAuCAMAAAA/WpYJAAAAAXNSR0IB2cksfwAAAgpQTFRFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVnf1doAAAAK50Uk5TAAxHb3JOCxl9qKeqbQcPgqSmozYgHAQ8YiKrm4acoqlUJICXljoTHkKlrngooEgOX1UIgVMCUJKYhCWhiAo/rS2eSoeZTFusmgN1H103BXo5QBaUHY4JBnZpcYMVfwFejYsUOEUjflEzjBduMjGdcIUQLi+fZlkSZVJ0S0ZaLEORZGx5GCYNJyEbV3cRO5BJaxqVY0E9alyPWIkpk2E1NEQqaE97Z3wrczA+VopgKmOyugAAC3RJREFUeJy9mHlYE9cWwM9EScCQQULCouSB+BlMAmKi4gOLdae4gW0FRYwVDXXBBbBPK4iKlEVZSt1QtqpYhVq1glK1ilUriJoISkJQBAyorEoWJAEzbzLRVx/49eunfM4/mXPPmfnd3Hu2Owh8hAshLl2f4Y+ApuBgA1/18dko0mOC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"/></defs><style></style><use  href="#img1" x="0" y="0"/></svg>
+            .firm.client.flex-between
+                img(src="img/deorham.png", alt="")
+                img(src="img/ratings.png", alt="")
+                img(src="img/malik.png", alt="")
+                img(src="img/bcause.png", alt="")
+                img(src="img/wompify.png", alt="")
+            .p
+                p 
+                    i Hvaing placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                p 
+                    i Temporibus autem quibusdam et aut officiis debitis aut rerum”
+                p.john John Doe, Google Inc.
+            .circle
+                <svg><circle r="7" cx="10" cy="10" fill="#dddddd"></svg>
+                <svg><circle r="7" cx="10" cy="10" fill="#dddddd"></svg>
+                <svg><circle r="7" cx="10" cy="10" fill="#dddddd"></svg>
+        .get.wrapper 
+            h3 Get in touch
+            span.span 
+            p.p Lorem ipsum dolor sit amet, consetetur sadipscing elitr amet
+            .cg
+                .data.contacts
+                    .addres.flex.center
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 17" width="12" height="17"><style>.a{fill:#555}</style><path class="a" d="m9 5.7c0 1.5-1.3 2.8-3 2.8-1.7 0-3-1.3-3-2.8 0-1.6 1.3-2.9 3-2.9 1.7 0 3 1.3 3 2.9zm3 0c0-3.2-2.7-5.7-6-5.7-3.3 0-6 2.5-6 5.7 0 0.6 0.1 1.3 0.4 1.9l4.3 8.6c0.2 0.5 0.7 0.8 1.3 0.8 0.6 0 1.1-0.3 1.3-0.8l4.3-8.6c0.3-0.6 0.4-1.3 0.4-1.9z"/></svg>
+                        .inner
+                            p.info Address
+                            p 312, 7th Ave, New York
+                            p NY 101200, United States of America
+                    .hotline.flex.center
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 20" width="12" height="20"><style>.a{fill:#555}</style><path class="a" d="m7.2 18c0 0.7-0.5 1.2-1.2 1.2-0.7 0-1.3-0.5-1.3-1.2 0-0.7 0.6-1.3 1.3-1.3 0.7 0 1.2 0.6 1.2 1.3zm3.3-2.5c0 0.3-0.2 0.5-0.5 0.5h-8c-0.3 0-0.5-0.2-0.5-0.5v-11c0-0.3 0.2-0.5 0.5-0.5h8c0.3 0 0.5 0.2 0.5 0.5zm-3-13.3c0 0.2-0.1 0.3-0.3 0.3h-2.5c-0.1 0-0.2-0.1-0.2-0.3 0-0.1 0.1-0.2 0.2-0.2h2.5c0.2 0 0.3 0.1 0.3 0.2zm4.5-0.2c0-1.1-0.9-2-2-2h-8c-1.1 0-2 0.9-2 2v16c0 1.1 0.9 2 2 2h8c1.1 0 2-0.9 2-2z"/></svg>
+                        .inner
+                            p.info Hotline (24x7)
+                            p +65 0052 300, +65 88251 210
+                            p +88 01723 511 340
+                    .email.flex.center
+                        <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 11" width="15" height="11"><style>.a{fill:#555}</style><path class="a" d="m13.9 9.7c0 0.2-0.1 0.3-0.2 0.3h-12.4c-0.1 0-0.2-0.1-0.2-0.3v-6q0.2 0.3 0.5 0.6 1.9 1.3 3.6 2.6c0.6 0.5 1.4 1.1 2.3 1.1 0.9 0 1.7-0.6 2.3-1.1q1.7-1.3 3.6-2.6 0.3-0.3 0.5-0.6zm0-8.2c0 0.7-0.7 1.6-1.2 2q-1.7 1.2-3.4 2.4c-0.4 0.4-1.2 1.1-1.8 1.1-0.6 0-1.4-0.7-1.8-1.1q-1.7-1.2-3.4-2.4c-0.8-0.6-1.2-1.4-1.2-2.3 0-0.1 0.1-0.2 0.2-0.2h12.4c0.3 0 0.2 0.3 0.2 0.5zm1.1-0.3c0-0.6-0.6-1.2-1.3-1.2h-12.4c-0.7 0-1.3 0.6-1.3 1.2v8.5c0 0.7 0.6 1.3 1.3 1.3h12.4c0.7 0 1.3-0.6 1.3-1.3z"/></svg>
+                        .inner
+                            p.info E-mail
+                            p shapedtheme@gmail.com
+                            p khalilkode@gmail.com
+                .inputs.flex-center
+                    input(type="text" placeholder="Your name")
+                    input(type="email" placeholder="Your E-mail")
+                    input(type="text" placeholder="Your subject")
+                    input(type="text" placeholder="Company name")
+                    input(type="text" placeholder="Write your message").text
+                    input(type="submit" placeholder="Send message")
+                    p * We’ll contact you as as possible. We don’t reply on Monday.
+                    //- table 
+                    //-     tr
+                    //-         td
+                    //-             input(type="text" placeholder="Your name")
+                    //-         td
+                    //-             input(type="text" placeholder="Your E-mail")
+                    //-     tr
+                    //-         td 
+                    //-             input(type="email" placeholder="Your subject")
+                    //-         td 
+                    //-             input(type="text" placeholder="Company name")
+                    //-     tr
+                    //-         td(colspan="2")
+                    //-             input(type="text" placeholder="Write your message").text 
+                    //-     tr
+                    //-         td 
+                    //-             input(type="submit" placeholder="Send message")
+                    //-         td 
+                    //-             p * We’ll contact you as as possible. We don’t reply on Monday.
+        footer
+            .footer
+                .svg
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" width="16" height="12"><style>.a{fill:#fff}</style><path class="a" d="m16 1.4q-0.9 0.4-1.9 0.5c0.7-0.4 1.2-1 1.5-1.7q-1 0.6-2.1 0.8c-0.6-0.6-1.5-1-2.4-1-1.8 0-3.3 1.4-3.3 3q0 0.4 0.1 0.7c-2.7-0.1-5.2-1.3-6.8-3.1q-0.4 0.6-0.4 1.5c0 1 0.5 2 1.4 2.5q-0.8 0-1.5-0.4 0 0 0 0.1c0 1.4 1.2 2.6 2.7 2.9q-0.4 0.1-0.9 0.1-0.3 0-0.6 0c0.4 1.2 1.6 2.1 3.1 2.1-1.2 0.8-2.6 1.3-4.1 1.3q-0.4 0-0.8-0.1c1.5 0.9 3.2 1.4 5 1.4 6.1 0 9.4-4.6 9.4-8.6q0-0.2 0-0.4 0.9-0.7 1.6-1.6z"/></svg>
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" width="16" height="12"><style>.a{fill:#fff}</style><path class="a" d="m16 1.4q-0.9 0.4-1.9 0.5c0.7-0.4 1.2-1 1.5-1.7q-1 0.6-2.1 0.8c-0.6-0.6-1.5-1-2.4-1-1.8 0-3.3 1.4-3.3 3q0 0.4 0.1 0.7c-2.7-0.1-5.2-1.3-6.8-3.1q-0.4 0.6-0.4 1.5c0 1 0.5 2 1.4 2.5q-0.8 0-1.5-0.4 0 0 0 0.1c0 1.4 1.2 2.6 2.7 2.9q-0.4 0.1-0.9 0.1-0.3 0-0.6 0c0.4 1.2 1.6 2.1 3.1 2.1-1.2 0.8-2.6 1.3-4.1 1.3q-0.4 0-0.8-0.1c1.5 0.9 3.2 1.4 5 1.4 6.1 0 9.4-4.6 9.4-8.6q0-0.2 0-0.4 0.9-0.7 1.6-1.6z"/></svg>
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" width="16" height="12"><style>.a{fill:#fff}</style><path class="a" d="m16 1.4q-0.9 0.4-1.9 0.5c0.7-0.4 1.2-1 1.5-1.7q-1 0.6-2.1 0.8c-0.6-0.6-1.5-1-2.4-1-1.8 0-3.3 1.4-3.3 3q0 0.4 0.1 0.7c-2.7-0.1-5.2-1.3-6.8-3.1q-0.4 0.6-0.4 1.5c0 1 0.5 2 1.4 2.5q-0.8 0-1.5-0.4 0 0 0 0.1c0 1.4 1.2 2.6 2.7 2.9q-0.4 0.1-0.9 0.1-0.3 0-0.6 0c0.4 1.2 1.6 2.1 3.1 2.1-1.2 0.8-2.6 1.3-4.1 1.3q-0.4 0-0.8-0.1c1.5 0.9 3.2 1.4 5 1.4 6.1 0 9.4-4.6 9.4-8.6q0-0.2 0-0.4 0.9-0.7 1.6-1.6z"/></svg>
+                    <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 12" width="16" height="12"><style>.a{fill:#fff}</style><path class="a" d="m16 1.4q-0.9 0.4-1.9 0.5c0.7-0.4 1.2-1 1.5-1.7q-1 0.6-2.1 0.8c-0.6-0.6-1.5-1-2.4-1-1.8 0-3.3 1.4-3.3 3q0 0.4 0.1 0.7c-2.7-0.1-5.2-1.3-6.8-3.1q-0.4 0.6-0.4 1.5c0 1 0.5 2 1.4 2.5q-0.8 0-1.5-0.4 0 0 0 0.1c0 1.4 1.2 2.6 2.7 2.9q-0.4 0.1-0.9 0.1-0.3 0-0.6 0c0.4 1.2 1.6 2.1 3.1 2.1-1.2 0.8-2.6 1.3-4.1 1.3q-0.4 0-0.8-0.1c1.5 0.9 3.2 1.4 5 1.4 6.1 0 9.4-4.6 9.4-8.6q0-0.2 0-0.4 0.9-0.7 1.6-1.6z"/></svg>
+                span.span
+                p © 2015 Startup, Designed by ShapedTheme
+
+        script(src="js/scripts.js")
