@@ -71,6 +71,19 @@ html(lang="en")
                     li Lorem ipsum dolor sit amet. Lorem ipsum dolor et dolore aliquyam erat. Loreipsum 
                     li dolor sit amet. Lorem ipsum dolor et.
             .slider-wrapper
+                //- button.nav.prev <
+                //- .viewport
+                //-     .slider-track
+                //-         .slider.flex-between
+                //-             .slide.active
+                //-                 +persons(personnel.head)
+                //-             .slide.nexts
+                //-                 +persons(personnel.rubbel)
+                //-             .slide 
+                //-                 +persons(personnel.shamim)
+                //-             .slide.prevs
+                //-                 +persons(personnel.john)
+                //- button.nav.next >
                 button.nav.prev <
                 .viewport
                     .slider-track
@@ -95,15 +108,100 @@ html(lang="en")
                 li.li.strategys Strategy
 
             .workplaces.flex-between
-                img(src="img/hair.png").hair.brandings
-                img(src="img/bird.png").bird.designs.brandings
-                img(src="img/desktop.png").desktop.developments.strategys
-                img(src="img/camera.png").camera.designs
-                img(src="img/bicycle.png").bicycle.brandings.designs
-                img(src="img/notebook.png").notebook.strategys.developments
-                img(src="img/workplace.png").workplace.developments.strategys
-                img(src="img/design.png").designs
-                img(src="img/events.png").events.developments
+                .hover 
+                    .img 
+                        img(src="img/hair.png").hair.brandings
+                    .div 
+                        p.p Hair Dresser
+                        p brandings
+                        p.a
+                            a(data-id="1" data-name="Hair Dresser" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/bird.png").bird.designs.brandings
+                    .div 
+                        p.p Courier
+                        p designs
+                        p brandings
+                        p.a 
+                            a(data-id="2" data-name="Courier" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/desktop.png").desktop.developments.strategys
+                    .div 
+                        p.p Office Manager
+                        p developments
+                        p strategys
+                        p.a 
+                            a(data-id="3" data-name="Office Manager" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/camera.png").camera.designs
+                    .div 
+                        p.p Photographer
+                        p designs
+                        p.a 
+                            a(data-id="4" data-name="Photographer" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/bicycle.png").bicycle.brandings.designs
+                    .div 
+                        p.p Urban Freedom Bike
+                        p brandings
+                        p designs
+                        p.a 
+                            a(data-id="5" data-name="Urban Freedom Bike" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/notebook.png").notebook.strategys.developments
+                    .div 
+                        p.p Illustrator
+                        p strategys
+                        p developments
+                        p.a 
+                            a(data-id="6" data-name="Illustrator" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/workplace.png").workplace.developments.strategys
+                    .div 
+                        p.p Freelancer
+                        p developments
+                        p strategys
+                        p.a 
+                            a(data-id="7" data-name="Freelancer" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/design.png").designs
+                    .div 
+                        p.p Smart Office Essentials
+                        p designs
+                        p.a 
+                            a(data-id="8" data-name="Smart Office Essentials" data-price="500") view
+                .hover 
+                    .img 
+                        img(src="img/events.png").events.developments
+                    .div 
+                        p.p Events Developments
+                        p developments
+                        p.a 
+                            a(data-id="9" data-name="Events Developments" data-price="500") view
+        
+        <div id="cart-button">Кошик</div>
+
+        <div id="cart-modal" class="hidden">
+        <div class="cart-window">
+            <a id="close-cart">✖</a>
+
+            <h2>Кошик</h2>
+
+            <ul id="cart"></ul>
+
+            <div class="cart-actions">
+                <a id="clear-cart">Очистити кошик</a>
+            </div>
+        </div>
+        </div>
+
 
         .doyou
             .wrapper

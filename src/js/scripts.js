@@ -1,19 +1,3 @@
-// let imgs = document.querySelectorAll('.img')
-// let svgs = document.querySelector('.svgs')
-
-// svgs.forEach(element => {
-//     imgs.addEventListener('mouseenter', e => {
-//         e.preventDefault();
-//         svgs.style.display = 'block';
-//     });
-// });
-// document.querySelector('.img').addEventListener('mouseleave', e => {
-    //     e.preventDefault();
-    //     document.querySelector('.svgs').style.display = 'none';
-    // });
-    
-
-
 //паралакс
 const header = document.querySelector('header');
 
@@ -116,6 +100,7 @@ rock.addEventListener("dblclick", e => {
     e.preventDefault();   
     second.forEach(item => {
         item.style.display = "block";
+        item.style.color = "#c0301c";
     })
     names.forEach(item => {
         item.style.display = "none";
@@ -210,14 +195,14 @@ read.forEach(button => {
 })
 
 
-//слайдер
+// // слайдер
 const slider = document.querySelector('.slider');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 const track = document.querySelector('.slider-track');
 
 let autoSlideInterval = null;
-    
+
 // const slideWidth = slider[0].offsetWidth + 30; // ширина + gap
 // let isAnimating = false;
 // track.insertBefore(slider[slider.length - 1].cloneNode(true), track.firstChild);
@@ -229,6 +214,7 @@ let autoSlideInterval = null;
 
 function moveNext() {
   const firstSlide = slider.firstElementChild;
+  const secondSlide = slider.children[1]
 //   const lastSlide = slider.lastElementChild;
   slider.style.transition = 'transform 1s ease';
   slider.style.transform = 'translateX(-300px)';
@@ -237,6 +223,7 @@ function moveNext() {
     slider.style.transition = 'none';
     slider.style.transform = 'translateX(0)';
     slider.appendChild(firstSlide); // переносимо фото в кінець
+    // slider.insertAdjacentElement(beforeend,secondSlide); // переносимо фото в кінець
   }, 500);
 }
 
@@ -273,6 +260,100 @@ function stopAutoSlide() {
 }
 
 startAutoSlide();
+
+
+
+// const slider = document.querySelector('.slider');
+// const slides = document.querySelectorAll('.slide');
+// const prevBtn = document.querySelector('.nav.prev');
+// const nextBtn = document.querySelector('.nav.next');
+
+// const slideWidth = slides[0].offsetWidth + 24; // gap
+// let index = 1;
+// let isAnimating = false;
+
+// // --- клонуємо крайні ---
+// const firstClone = slides[0].cloneNode(true);
+// const lastClone = slides[slides.length - 1].cloneNode(true);
+
+// slider.appendChild(firstClone);
+// slider.insertBefore(lastClone, slides[0]);
+
+// slider.style.transform = `translateX(${-slideWidth * index}px)`;
+
+// // --- рух ---
+// function moveToIndex() {
+//   isAnimating = true;
+//   slider.style.transition = 'transform 0.8s ease';
+//   slider.style.transform = `translateX(${-slideWidth * index}px)`;
+// }
+
+// nextBtn.addEventListener('click', () => {
+//   if (isAnimating) return;
+//   index++;
+//   moveToIndex();
+// });
+
+// prevBtn.addEventListener('click', () => {
+//   if (isAnimating) return;
+//   index--;
+//   moveToIndex();
+// });
+
+// // --- loop без ривка ---
+// slider.addEventListener('transitionend', () => {
+//   slider.style.transition = 'none';
+
+//   if (index === slides.length + 1) {
+//     index = 1;
+//   }
+
+//   if (index === 0) {
+//     index = slides.length;
+//   }
+
+//   slider.style.transform = `translateX(${-slideWidth * index}px)`;
+//   isAnimating = false;
+// });
+
+
+
+
+// const slides = document.querySelectorAll('.slide');
+// const nextBtn = document.querySelector('.next');
+// const prevBtn = document.querySelector('.prev');
+
+// let current = 0;
+
+// function updateSlides() {
+//   slides.forEach(slide => {
+//     slide.classList.remove('active', 'prevs', 'nexts');
+//   });
+
+//   slides[current].classList.add('active');
+//   slides[(current - 1 + slides.length) % slides.length].classList.add('prevs');
+//   slides[(current + 1) % slides.length].classList.add('nexts');
+// }
+
+// function nextSlide() {
+//   current = (current + 1) % slides.length;
+//   updateSlides();
+// }
+
+// function prevSlide() {
+//   current = (current - 1 + slides.length) % slides.length;
+//   updateSlides();
+// }
+
+// nextBtn.addEventListener('click', nextSlide);
+// prevBtn.addEventListener('click', prevSlide);
+
+// // автопрокрутка
+// setInterval(nextSlide, 4000);
+
+// updateSlides();
+
+
 
 
 
@@ -416,3 +497,239 @@ startAutoSlide();
 
 // /* Автопрокрутка */
 // setInterval(moveNext, 3000);
+
+
+// const cartList = document.getElementById("cart");
+
+// // отримати кошик
+// function getCart() {
+//   return JSON.parse(localStorage.getItem("cart")) || [];
+// }
+
+// // зберегти кошик
+// function saveCart(cart) {
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
+
+// // додати товар
+// function addToCart(product) {
+//   const cart = getCart();
+//   const item = cart.find(el => el.id === product.id);
+
+//   if (item) {
+//     item.quantity++;
+//   } else {
+//     cart.push({ ...product, quantity: 1 });
+//   }
+
+//   saveCart(cart);
+//   renderCart();
+// }
+
+// // відмалювати кошик
+// function renderCart() {
+//   cartList.innerHTML = "";
+
+//   const cart = getCart();
+
+//   cart.forEach(item => {
+//     const li = document.createElement("li");
+//     li.textContent = `${item.name} — ${item.quantity} шт. (${item.price * item.quantity} грн)`;
+
+//     // 🔥 тут використовується insertAdjacentElement
+//     cartList.insertAdjacentElement("beforeend", li);
+//   });
+// }
+
+// // обробка кліків
+// document.addEventListener("click", e => {
+//   if (e.target.tagName === "a" && e.target.dataset.id) {
+//     addToCart({
+//       id: Number(e.target.dataset.id),
+//       name: e.target.dataset.name,
+//       price: Number(e.target.dataset.price)
+//     });
+//   }
+// });
+
+// // відновлення кошика
+// renderCart();
+
+
+// const cartEl = document.getElementById("cart");
+
+// // --- localStorage ---
+// function getCart() {
+//   return JSON.parse(localStorage.getItem("cart")) || [];
+// }
+
+// function saveCart(cart) {
+//   localStorage.setItem("cart", JSON.stringify(cart));
+// }
+
+// // --- додавання ---
+// function addToCart(product) {
+//   const cart = getCart();
+//   const item = cart.find(el => el.id === product.id);
+
+//   if (item) {
+//     item.quantity++;
+//   } else {
+//     cart.push({ ...product, quantity: 1 });
+//   }
+
+//   saveCart(cart);
+//   renderCart();
+// }
+
+// // --- рендер кошика ---
+// function renderCart() {
+//   cartEl.innerHTML = "";
+
+//   const cart = getCart();
+
+//   cart.forEach(item => {
+//     const li = document.createElement("li");
+//     li.classList.add("cart-item");
+
+//     // 🖼 фото
+//     const img = document.createElement("img");
+//     img.src = item.img;
+//     img.alt = item.name;
+//     img.classList.add("cart-img");
+
+//     // 📄 текст
+//     const info = document.createElement("div");
+//     info.classList.add("cart-info");
+//     info.textContent = `${item.name} × ${item.quantity} — ${item.price * item.quantity} грн`;
+
+//     li.insertAdjacentElement("beforeend", img);
+//     li.insertAdjacentElement("beforeend", info);
+
+//     cartEl.insertAdjacentElement("beforeend", li);
+//   });
+// }
+
+// // --- обробка кліку ---
+// document.addEventListener("click", e => {
+//   if (e.target.tagName === "A" && e.target.dataset.id) {
+//     e.preventDefault();
+
+//     const card = e.target.closest(".hover");
+//     const imgSrc = card.querySelector("img").src;
+
+//     addToCart({
+//       id: Number(e.target.dataset.id),
+//       name: e.target.dataset.name,
+//       price: Number(e.target.dataset.price),
+//       img: imgSrc
+//     });
+//   }
+// });
+
+// // --- відновлення ---
+// renderCart();
+
+
+
+const cartModal = document.getElementById("cart-modal");
+const cartEl = document.getElementById("cart");
+
+function getCart() {
+  return JSON.parse(localStorage.getItem("cart")) || [];
+}
+
+function saveCart(cart) {
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product) {
+  const cart = getCart();
+  const item = cart.find(el => el.id === product.id);
+
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ ...product, quantity: 1 });
+  }
+
+  saveCart(cart);
+  renderCart();
+}
+
+function removeItem(id) {
+  let cart = getCart();
+  cart = cart.filter(item => item.id !== id);
+  saveCart(cart);
+  renderCart();
+}
+
+function clearCart() {
+  localStorage.removeItem("cart");
+  renderCart();
+}
+
+function renderCart() {
+  cartEl.innerHTML = "";
+  const cart = getCart();
+
+  if (!cart.length) {
+    cartEl.textContent = "Кошик порожній";
+    cartEl.style.fontSize = '15px'
+    return;
+  }
+
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.classList.add("cart-item");
+
+    const img = document.createElement("img");
+    img.src = item.img;
+    img.className = "cart-img";
+
+    const text = document.createElement("span");
+    text.textContent = `${item.name} × ${item.quantity}`;
+    text.style.fontSize = '10px'
+
+    const remove = document.createElement("span");
+    remove.textContent = "X";
+    remove.className = "cart-remove";
+    remove.style.fontSize = '10px'
+    remove.onclick = () => removeItem(item.id);
+
+    li.insertAdjacentElement("beforeend", img);
+    li.insertAdjacentElement("beforeend", text);
+    li.insertAdjacentElement("beforeend", remove);
+
+    cartEl.insertAdjacentElement("beforeend", li);
+  });
+}
+
+document.getElementById("cart-button").onclick = () => {
+  cartModal.classList.remove("hidden");
+  renderCart();
+};
+
+document.getElementById("close-cart").onclick = () => {
+  cartModal.classList.add("hidden");
+};
+
+document.getElementById("clear-cart").onclick = clearCart;
+
+document.addEventListener("click", e => {
+  if (e.target.tagName === "A" && e.target.dataset.id) {
+    e.preventDefault();
+
+    const card = e.target.closest(".hover");
+    const img = card.querySelector("img").src;
+
+    addToCart({
+      id: Number(e.target.dataset.id),
+      name: e.target.dataset.name,
+      price: Number(e.target.dataset.price),
+      img
+    });
+  }
+});
+
+renderCart();
