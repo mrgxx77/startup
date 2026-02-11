@@ -6,13 +6,45 @@ body
     padding: 0
     margin: 0
 
-html
+html    
     scroll-behavior: smooth
     font-size: 0.7px
     +media(1010)
         font-size: 1px
     +media(2040)
         font-size: 2px
+
+img
+    max-width: 100%
+
+.fade-up 
+  opacity: 0
+  transform: translateY(30px)
+  transition: opacity 0.6s ease, transform 0.6s ease
+
+
+.fade-up.is-visible 
+  opacity: 1
+  transform: translateY(0)
+
+
+input[type="radio"] 
+    appearance: none
+    -webkit-appearance: none
+    width: 18px
+    height: 18px
+    //   border: 2px solid #c0301c
+    background-color: #dddddd
+    border-radius: 50%
+    cursor: pointer
+    position: relative
+
+
+input[type="radio"]:checked 
+    background-color: #c0301c
+
+
+
 
 h3 
     +h3
@@ -41,6 +73,9 @@ li, a
     background-color: rgba(0, 0, 0, 0.3)
     backdrop-filter: blur(4rem)
 .burger 
+    position: absolute
+    top: 0
+    right: 0
     width: 50rem
     height: 100%
     cursor: pointer
@@ -54,29 +89,6 @@ li, a
     border-radius: 2rem
     background-color: #ffffff
     transition: all 1s ease
-+media(750) 
-    .burger 
-        display: none
-    .menu 
-        // left: 0%
-        max-width: 100%
-        // right: 0
-        // background-color: rgba(110,69,226,0)
-        position: static
-        display: flex
-        justify-content: space-between
-        column-gap: 10rem
-        // +media(750)
-        display: block
-    // .menu 
-        // padding-left: 0rem
-        // padding-right: 0rem
-        li 
-            margin-bottom: 0rem
-            padding: 15rem 10rem
-        ul
-            display: flex
-            justify-content: space-between
 header 
     // background-image: url(../img/startupbc.jpg')
     +dark('../img/startupbc.jpg')
@@ -88,34 +100,26 @@ header
         position: fixed
         width: 100%
         z-index: 2
-    // .menu
-    //     padding-left: 7%
-    //     padding-right: 5%
-        // .logo
-        //     p
-        //         font-size: 24rem
-        //         font-weight: 500
-    //     ul
-            // padding-top: 25rem
-            // column-gap: 50rem
-        // a
-        //     padding-top: 5rem
-        //     font-size: 14rem
-        //     letter-spacing: 0rem
-        //     line-height: 24rem
-        //     color: #ffffff
-        //     font-weight: 100
-        //     font-weight: normal
+    .none
+        // display: flex
+        justify-content: center
+        column-gap: 20rem
+        display: none
     .navigation
+        display: flex
+        justify-content: space-between
         .logo
             padding-left: 30rem
             p
                 font-size: 24rem
                 font-weight: 500    
                 color: #fff
+        .nav 
+            display: flex
     .menu
         position: absolute
         position: fixed
+        // height: 100%
         top: 0
         left: -100%
         z-index: 2
@@ -127,11 +131,14 @@ header
         padding-right: 80rem
         ul
             // padding-top: 20rem
-            padding-top: 25rem
+            padding-top: 28rem
+            // display: flex
+            // text-align: center
             column-gap: 50rem
+            padding-right: 20rem
         li
             margin-bottom: 20rem
-        a
+        a:not(.clear-cart)
             padding-top: 5rem
             font-size: 14rem
             letter-spacing: 0rem
@@ -139,7 +146,27 @@ header
             color: #ffffff
             font-weight: 100
             font-weight: normal
+    .basket
+        padding-top: 15rem
     
+    +media(750) 
+        .burger 
+            display: none
+        // .basket
+        //     top: 23rem
+        //     right: 20rem
+        .menu 
+            // left: 0
+            max-width: 100%
+            // right: 0
+            background-color: rgba(110,69,226,0)
+            position: static
+            display: flex
+        ul
+            display: flex
+            justify-content: space-between
+        .basket
+            padding-top: 23rem
     .welcome
         padding-top: 310rem
         padding-bottom: 250rem
@@ -162,6 +189,58 @@ header
                 padding: 15rem
             a:hover
                 +hoverA
+#cart-button 
+    cursor: pointer
+    font-weight: 600
+    font-size: 30rem
+#cart-modal 
+  position: fixed
+  inset: 0
+  background: rgba(0,0,0,.5)
+  display: flex
+  justify-content: center
+  align-items: center
+  z-index: 1000
+#cart-modal.hidden 
+  display: none
+.cart-window 
+    background: #fff
+    width: 400rem
+    max-height: 80vh
+    overflow-y: auto
+    padding: 20rem
+    position: relative
+    h2
+        text-transform: uppercase
+        font-family: "Roboto Slab"
+        font-size: 20rem
+        margin: 0
+        padding-bottom: 15rem
+#close-cart 
+  position: absolute
+  top: 10rem
+  right: 15rem
+  font-size: 20rem
+  color: #000
+#cart 
+  list-style: none
+  padding: 0
+.cart-item 
+  display: flex
+  align-items: center
+  gap: 10rem
+  margin-bottom: 12rem
+.cart-img 
+  width: 50rem
+.cart-remove 
+  margin-left: auto
+  cursor: pointer
+  color: red
+.cart-actions
+    font-size: 12rem
+    padding: 5rem
+    border: solid 1rem #c0301c
+
 
 .popap
     position: fixed
@@ -311,21 +390,19 @@ header
         position: relative
         padding-top: 15rem
     .texts
+        // padding-left: 30px
+        +media(750)
+            display: flex
+            column-gap: 25px
+            justify-content: space-between
+    .texts p
         flex-wrap: wrap
         padding-bottom: 30rem
-        justify-content: center
+        +p
         +media(1024)
             flex-wrap: nowrap
-            justify-content: start
-            column-gap: 30px
-        .ul
             padding-top: 30rem
-            +media(1024)
-                padding-top: 0
-        li
-            +p
             font-size: 14rem
-            font-weight: 400
             font-family: "Roboto Slab"
             text-align: left
     .slider-wrapper
@@ -347,14 +424,16 @@ header
                 // position: relative
                 height: 100%
             .img:hover + .svgs
-                display: block
+                display: flex
         .svgs
             padding-left: 60rem
             display: none
             position: absolute
             padding-bottom: 20rem
+            justify-content: center
+            
             top: 60%
-            // left: 10px
+            // left: 10rem
             // left: 50%
             // transform: translate(-50%, -50%)
             svg
@@ -366,7 +445,7 @@ header
             svg:hover
                 background-color: #c0301c
         .svgs:hover
-            display: block
+            display: flex
         .name
             text-transform: uppercase
             font-size: 14rem
@@ -390,8 +469,40 @@ header
         z-index: 10
     .prev 
         left: 40rem
+        // background-color: #fff
+        transition: all 0.5s ease
+    .prev:hover
+        background-color: #c0301c
     .next 
         right: -40rem
+        transition: all 0.5s ease
+    .next:hover
+        background-color: #c0301c
+
+.slider-wrapper 
+  position: relative
+  width: 100%
+  margin: 0 auto
+
+
+.viewport 
+  overflow: hidden
+  width: 100%
+
+.slider-track 
+  transition: transform 0.6s ease
+
+
+.slider 
+  display: flex
+
+
+.slide 
+  flex: 0 0 25%
+  box-sizing: border-box
+//   padding: 10px
+        
+
 
 .works
     padding-bottom: 50rem
@@ -405,17 +516,20 @@ header
             font-family: "Roboto Slab"
     .workplaces
         flex-wrap: wrap
-        // max-width: 95%
         justify-content: center
-        column-gap: 20rem
+        +media(750)
+            display: flex
+            column-gap: 20rem
         img
             display: none
             padding-bottom: 20rem
+            max-width: 100%
         .hover
             position: relative
             .img:hover + .div
                 display: block
         .div
+            z-index: 1000
             display: none
             position: absolute
             top: 0
@@ -424,17 +538,17 @@ header
             height: 95%
             .p
                 padding-top: 30%
-                font-size: 18px
-                line-height: 24px
+                font-size: 18rem
+                line-height: 24rem
                 color: #ffffff
                 font-weight: 500
                 font-family: "Montserrat"
                 text-align: center
             p
-                padding-top: 5px
+                padding-top: 5rem
                 margin: 0
-                font-size: 12px
-                line-height: 24px
+                font-size: 12rem
+                line-height: 24rem
                 color: #ffffff
                 font-weight: 400
                 font-family: "Roboto Slab"
@@ -442,74 +556,31 @@ header
             .a
                 text-align: center
                 // display: block
-                padding-top: 20px
+                padding-top: 20rem
             a
                 // display: block
-                padding:10px
-                // padding-top: 10px
+                padding:10rem
+                // padding-top: 10rem
                 background-color: #fff
-                font-size: 14px
-                letter-spacing: 1px
-                line-height: 24px
+                font-size: 14rem
+                letter-spacing: 1rem
+                line-height: 24rem
                 text-transform: uppercase
                 color: #c0301c
                 font-weight: 400
                 font-family: "Roboto Slab"
-                // text-align: center
-            
+                // text-align: center    
+        .div:hover
+            display: block
 
-#cart-button 
-    cursor: pointer
-    font-weight: 600
-    font-size: 30px
-#cart-modal 
-  position: fixed
-  inset: 0
-  background: rgba(0,0,0,.5)
-  display: flex
-  justify-content: center
-  align-items: center
-  z-index: 1000
-#cart-modal.hidden 
-  display: none
-.cart-window 
-    background: #fff
-    width: 400px
-    max-height: 80vh
-    overflow-y: auto
-    padding: 20px
-    position: relative
-    h2
-        text-transform: uppercase
-        font-family: "Roboto Slab"
-        font-size: 20px
-        margin: 0
-        padding-bottom: 15px
-#close-cart 
-  position: absolute
-  top: 10px
-  right: 15px
-  font-size: 20px
-//   text-decoration: none
-#cart 
-  list-style: none
-  padding: 0
-.cart-item 
-  display: flex
-  align-items: center
-  gap: 10px
-  margin-bottom: 12px
-.cart-img 
-  width: 50px
-.cart-remove 
-  margin-left: auto
-  cursor: pointer
-  color: red
-.cart-actions
-    font-size: 12px
-    padding: 5px
-    border: solid 1px #c0301c
-                
+    ul li 
+        cursor: pointer
+        transition: color 0.3s ease
+        
+
+    ul li.active 
+        color: #c0301c
+        
 
 .doyou
     // background-image: url("../img/startupback.png")
@@ -544,6 +615,8 @@ header
         padding-top: 20rem
     .recent 
         margin-bottom: 50rem
+        figure
+            margin: 0
         .between
             +media(1440)
                 flex-wrap: nowrap
@@ -553,6 +626,7 @@ header
         img
             height: 100%
             max-height: 320rem
+            max-width: 100%
         .info
             padding-top: 15rem
         ul
@@ -608,8 +682,24 @@ header
                 font-family: "Roboto Slab"
             a:hover
                 color: #c0301c
-        .more
+        .toggle-text 
             display: none
+        
+        .toggle-text.is-open 
+            display: block
+        
+        .toggle-btn
+            font-size: 13rem
+            letter-spacing: 1rem
+            line-height: 24rem
+            text-transform: uppercase
+            font-weight: 400
+            color: #777777
+            font-family: "Roboto Slab"
+            transition: all 0.5s ease
+            margin: 0
+        .toggle-btn:hover
+            color: #c0301c
 .google
     .firm
         flex-wrap: wrap
@@ -625,16 +715,54 @@ header
         p
             +p
             margin: 0
-        .john
+        .quote-name
             padding-top: 20rem
             font-size: 18rem
             font-weight: 500
-    .circle
-        display: flex
-        justify-content: center
-        padding-top: 20rem
-        svg
-            max-width: 20rem
+    // .quotes-slider
+    //     position: relative
+    // .quotes
+    //     position: relative
+    // .quote 
+    //     opacity: 0
+    //     position: absolute
+    //     transition: opacity 1s ease    
+    // .quote.active 
+    //     opacity: 1
+    //     position: relative
+.quotes-slider 
+    width: 70%
+    margin: 60px auto
+    text-align: center
+.quotes 
+    position: relative
+    height: 300px
+    overflow: hidden
+    +media(750)
+        height: 200px
+.quote 
+    position: absolute
+    inset: 0
+    opacity: 0
+    transform: translateX(100%)
+    transition: transform 1s ease, opacity 1s ease
+.quote.active 
+    opacity: 1
+    transform: translateX(0)
+    z-index: 2
+.quote.exit-left 
+    transform: translateX(-100%)
+    opacity: 0
+.quote-name 
+    display: block
+    margin-top: 10px
+    font-weight: bold
+.controls 
+    margin-top: 20px
+
+
+
+
 .get
     padding-bottom: 50rem
     .p
@@ -655,7 +783,7 @@ header
         column-gap: 50rem
     svg
         padding-top: 5rem
-        fill: #555555
+        // fill: #555555
     .flex
         display: flex
     .addres, .hotline
@@ -732,6 +860,24 @@ header
             border: none
             border: 2rem solid #c0301c
             filter: drop-shadow(0 0 2.5rem rgba(192, 47, 28, 0.184))
+
+    .popup 
+        position: fixed
+        inset: 0
+        background: rgba(0,0,0,.4)
+        display: flex
+        align-items: center
+        justify-content: center
+        a
+            font-size: 14rem
+            color: #555555
+    .popup-content 
+        background: #fff
+        padding: 20px
+        width: 300px
+    .hidden 
+        display: none
+                     
 footer
     background-color: #c0301c
     .footer

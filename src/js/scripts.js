@@ -1,3 +1,22 @@
+//плавна поява
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  },
+  {
+    threshold: 0.2
+  }
+);
+
+document.querySelectorAll('.fade-up').forEach(el => {
+  observer.observe(el);
+});
+
+
 //паралакс
 const header = document.querySelector('header');
 
@@ -13,7 +32,7 @@ header.addEventListener('mousemove', (e) => {
 header.addEventListener('mouseleave', () => {
   header.style.backgroundPosition = '50% 50%';
 });
-//
+
 const doyou = document.querySelector('.doyou');
 
 doyou.addEventListener('mousemove', (e) => {
@@ -30,46 +49,78 @@ doyou.addEventListener('mouseleave', () => {
 });
 
 //скрол
+document.querySelector('.home').addEventListener('click', () => {
+  const target = document.querySelector('header');
+  const headerHeight = 100
 
-// function scrollToSection(buttonSelector, sectionSelector) {
-//     const button = document.querySelector(buttonSelector);
-//     const section = document.querySelector(sectionSelector);
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
-//     if (!button || !section) return;
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.services').addEventListener('click', () => {
+  const target = document.querySelector('.servises');
+  const headerHeight = 80
 
-//     button.addEventListener('click', () => {
-//         window.scrollTo({
-//         top: section.offsetTop,
-//         behavior: 'smooth'
-//         });
-//     });
-// }
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
 
-// scrollToSection('.home', 'header');
-// scrollToSection('.servise', '.servises');
-// scrollToSection('.about', '.abouts');
-// scrollToSection('.blog', '.blogs');
-// scrollToSection('.clients', '.client');
-// scrollToSection('.contact', '.contacts');
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.about').addEventListener('click', () => {
+  const target = document.querySelector('.abouts');
+  const headerHeight = 100
+
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.blog').addEventListener('click', () => {
+  const target = document.querySelector('.blogs');
+  const headerHeight = 250
+
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.clients').addEventListener('click', () => {
+  const target = document.querySelector('.google');
+  const headerHeight = 100
+
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.contact').addEventListener('click', () => {
+  const target = document.querySelector('.get');
+  const headerHeight = 100
+
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+document.querySelector('.scroll').addEventListener('click', () => {
+  const target = document.querySelector('.get');
+  const headerHeight = 150
+
+  const top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+  document.documentElement.scrollTop = document.body.scrollTop = top;
+});
+
 
 //бургер меню
 const dark = document.querySelector(".dark-bgc"),
   burger = document.querySelector(".burger"),
   menu = document.querySelector(".menu")
   fixed = document.querySelector(".fixed")
-  //   cancel = document.querySelector(".cancel")
 
 burger.addEventListener("click", function() {
   menu.style.left = "0";
   dark.style.display = "block"
-  // fixed.style.backgroundColor = "rgba(192, 48, 28, 0)"
 })
 function cancelBurger() {
   menu.style.left = "-100%";
   dark.style.display = "none"
-  // fixed.style.backgroundColor = "rgba(192, 48, 28, 0.3)"
 }
-// cancel.addEventListener("click", cancelBurger)
 dark.addEventListener("click", cancelBurger)
 
 //попап
@@ -88,6 +139,24 @@ if (openBtn && popap && closeBtn) {
         popap.style.display = 'none';
     });
 }
+
+const submit = document.querySelector('.submit');
+const name = document.querySelector('.name');
+const none = document.querySelector('.none');
+const h1 = document.querySelector('.h1');
+const not = document.querySelector('.not');
+submit.addEventListener("click", e => {
+  e.preventDefault();
+  none.style.display = 'flex'
+  h1.style.display = 'none'
+  const value = document.querySelector('.yourname').value;
+  name.textContent = value
+  if (document.querySelector('.yourname').value.trim() === '') {
+    not.style.display = 'none'
+    name.textContent = 'you are not authorized'
+  }
+})
+
 
 //заміна заголовків
 const second = document.querySelectorAll(".second");
@@ -109,529 +178,146 @@ rock.addEventListener("dblclick", e => {
 })
 
 //сортування
-const li = document.querySelectorAll(".li");
-const all = document.querySelector(".all");
-
-li.forEach(item => {
-    item.addEventListener("click", () => {
-
-        if (item === all) {
-            let isRed = all.style.color === "rgb(192, 48, 28)" || all.style.color === "#c0301c";
-
-            li.forEach(el => {
-                el.style.color = isRed ? "" : "#c0301c";
-            });
-
-            return;
-        }
-
-        item.style.color =
-            item.style.color === "rgb(192, 48, 28)" || item.style.color === "#c0301c"
-                ? ""
-                : "#c0301c";
-    });
-});
 
 const filters = document.querySelectorAll('ul li');
 const images = document.querySelectorAll('.workplaces img');
-
 const allLi = document.querySelector('ul li.all');
 
+allLi.classList.add('active');
+images.forEach(img => img.style.display = 'block');
+
 filters.forEach(li => {
-    li.addEventListener('click', () => {
+  li.addEventListener('click', () => {
 
-        if (li.classList.contains('all')) {
-            const isActive = li.classList.contains('active');
+    filters.forEach(item => item.classList.remove('active'));
 
-            filters.forEach(item => item.classList.remove('active'));
+    li.classList.add('active');
 
-            if (!isActive) {
-                li.classList.add('active');
-                images.forEach(img => img.style.display = 'block');
-            } else {
-                images.forEach(img => img.style.display = 'none');
-            }
+    if (li.classList.contains('all')) {
+      images.forEach(img => img.style.display = 'block');
+      return;
+    }
 
-            return;
-        }
+    const category = li.classList[1];
 
-        li.classList.toggle('active');
-
-        allLi.classList.remove('active');
-
-        const activeFilters = Array.from(filters)
-            .filter(item =>
-                item.classList.contains('active') &&
-                !item.classList.contains('all')
-            )
-            .map(item => item.classList[1]);
-
-        images.forEach(img => {
-            if (activeFilters.length === 0) {
-                img.style.display = 'none';
-                return;
-            }
-
-            const show = activeFilters.some(filter =>
-                img.classList.contains(filter)
-            );
-
-            img.style.display = show ? 'block' : 'none';
-        });
+    images.forEach(img => {
+      img.style.display = img.classList.contains(category)
+        ? 'block'
+        : 'none';
     });
+  });
 });
 
+
+
 //read more
-let read = document.querySelectorAll(".read")
-read.forEach(button => {
-    button.addEventListener('click', () => {
-        const parent = button.closest('.recent');
-        const items = parent.querySelectorAll('.more');
-        items.forEach(li => {
-            li.style.display = 'block'
-        })
-        button.style.display = 'none'
-    })
-})
+document.querySelectorAll('.toggle-block').forEach(block => {
+  const btn = block.querySelector('.toggle-btn');
+  const text = block.querySelector('.toggle-text');
+
+  btn.addEventListener('click', () => {
+    const isOpen = text.classList.toggle('is-open');
+
+    btn.textContent = isOpen
+      ? 'Hide'
+      : 'Read more';
+  });
+
+});
 
 
-// // слайдер
+// слайдер
+
+const wrapper = document.querySelector('.slider-wrapper');
+const track = document.querySelector('.slider-track');
 const slider = document.querySelector('.slider');
+const slides = document.querySelectorAll('.slide');
+
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
-const track = document.querySelector('.slider-track');
 
-let autoSlideInterval = null;
+let slidesPerView = 4;
+let index = slidesPerView;
+let slideWidth;
+let autoInterval;
 
-// const slideWidth = slider[0].offsetWidth + 30; // ширина + gap
-// let isAnimating = false;
-// track.insertBefore(slider[slider.length - 1].cloneNode(true), track.firstChild);
-// track.appendChild(slider[0].cloneNode(true));
-// let position = -slideWidth;
-// track.style.transform = `translateX(${position}px)`;
+for (let i = 0; i < slidesPerView; i++) {
+  const firstClone = slides[i].cloneNode(true);
+  const lastClone = slides[slides.length - 1 - i].cloneNode(true);
 
-//--------------зміна кольору кнопок
+  slider.appendChild(firstClone);
+  slider.insertBefore(lastClone, slider.firstChild);
+}
+
+const allSlides = document.querySelectorAll('.slide');
+
+function updateSliderPosition() {
+  slideWidth = allSlides[0].offsetWidth;
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+updateSliderPosition();
+window.addEventListener('resize', updateSliderPosition);
 
 function moveNext() {
-  const firstSlide = slider.firstElementChild;
-  const secondSlide = slider.children[1]
-//   const lastSlide = slider.lastElementChild;
-  slider.style.transition = 'transform 1s ease';
-  slider.style.transform = 'translateX(-300px)';
-
-  setTimeout(() => {
-    slider.style.transition = 'none';
-    slider.style.transform = 'translateX(0)';
-    slider.appendChild(firstSlide); // переносимо фото в кінець
-    // slider.insertAdjacentElement(beforeend,secondSlide); // переносимо фото в кінець
-  }, 500);
+  index++;
+  track.style.transition = 'transform 0.6s ease';
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
 function movePrev() {
-  const lastSlide = slider.lastElementChild;
-  slider.insertBefore(lastSlide, slider.firstElementChild);
-  slider.style.transition = 'none';
-  slider.style.transform = 'translateX(-300px)';
-
-  setTimeout(() => {
-    slider.style.transition = 'transform 1s ease';
-    slider.style.transform = 'translateX(0)';
-  }, 10);
+  index--;
+  track.style.transition = 'transform 0.6s ease';
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
+track.addEventListener('transitionend', () => {
+
+  if (index >= allSlides.length - slidesPerView) {
+    track.style.transition = 'none';
+    index = slidesPerView;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  }
+
+  if (index < slidesPerView) {
+    track.style.transition = 'none';
+    index = allSlides.length - slidesPerView * 2;
+    track.style.transform = `translateX(-${slideWidth * index}px)`;
+  }
+
+});
+
 nextBtn.addEventListener('click', () => {
-  stopAutoSlide();
+  stopAuto();
   moveNext();
-  startAutoSlide();
+  startAuto();
 });
 
 prevBtn.addEventListener('click', () => {
-  stopAutoSlide();
+  stopAuto();
   movePrev();
-  startAutoSlide();
+  startAuto();
 });
 
-function startAutoSlide() {
-  autoSlideInterval = setInterval(moveNext, 3000);
+function startAuto() {
+  autoInterval = setInterval(moveNext, 5000);
 }
 
-function stopAutoSlide() {
-  clearInterval(autoSlideInterval);
+function stopAuto() {
+  clearInterval(autoInterval);
 }
 
-startAutoSlide();
+wrapper.addEventListener('mouseenter', stopAuto);
+wrapper.addEventListener('mouseleave', startAuto);
 
+startAuto();
 
 
-// const slider = document.querySelector('.slider');
-// const slides = document.querySelectorAll('.slide');
-// const prevBtn = document.querySelector('.nav.prev');
-// const nextBtn = document.querySelector('.nav.next');
 
-// const slideWidth = slides[0].offsetWidth + 24; // gap
-// let index = 1;
-// let isAnimating = false;
 
-// // --- клонуємо крайні ---
-// const firstClone = slides[0].cloneNode(true);
-// const lastClone = slides[slides.length - 1].cloneNode(true);
 
-// slider.appendChild(firstClone);
-// slider.insertBefore(lastClone, slides[0]);
-
-// slider.style.transform = `translateX(${-slideWidth * index}px)`;
-
-// // --- рух ---
-// function moveToIndex() {
-//   isAnimating = true;
-//   slider.style.transition = 'transform 0.8s ease';
-//   slider.style.transform = `translateX(${-slideWidth * index}px)`;
-// }
-
-// nextBtn.addEventListener('click', () => {
-//   if (isAnimating) return;
-//   index++;
-//   moveToIndex();
-// });
-
-// prevBtn.addEventListener('click', () => {
-//   if (isAnimating) return;
-//   index--;
-//   moveToIndex();
-// });
-
-// // --- loop без ривка ---
-// slider.addEventListener('transitionend', () => {
-//   slider.style.transition = 'none';
-
-//   if (index === slides.length + 1) {
-//     index = 1;
-//   }
-
-//   if (index === 0) {
-//     index = slides.length;
-//   }
-
-//   slider.style.transform = `translateX(${-slideWidth * index}px)`;
-//   isAnimating = false;
-// });
-
-
-
-
-// const slides = document.querySelectorAll('.slide');
-// const nextBtn = document.querySelector('.next');
-// const prevBtn = document.querySelector('.prev');
-
-// let current = 0;
-
-// function updateSlides() {
-//   slides.forEach(slide => {
-//     slide.classList.remove('active', 'prevs', 'nexts');
-//   });
-
-//   slides[current].classList.add('active');
-//   slides[(current - 1 + slides.length) % slides.length].classList.add('prevs');
-//   slides[(current + 1) % slides.length].classList.add('nexts');
-// }
-
-// function nextSlide() {
-//   current = (current + 1) % slides.length;
-//   updateSlides();
-// }
-
-// function prevSlide() {
-//   current = (current - 1 + slides.length) % slides.length;
-//   updateSlides();
-// }
-
-// nextBtn.addEventListener('click', nextSlide);
-// prevBtn.addEventListener('click', prevSlide);
-
-// // автопрокрутка
-// setInterval(nextSlide, 4000);
-
-// updateSlides();
-
-
-
-
-
-// const slider = document.querySelector('.slider');
-// const slides = document.querySelectorAll('.slide');
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-
-// const slideWidth = 280; // 250 + gap
-// let index = 1;
-// let interval;
-
-// // КЛОНУЄМО
-// const firstClone = slides[0].cloneNode(true);
-// const lastClone = slides[slides.length - 1].cloneNode(true);
-
-// firstClone.classList.add('clone');
-// lastClone.classList.add('clone');
-
-// slider.appendChild(firstClone);
-// slider.insertBefore(lastClone, slides[0]);
-
-// // стартова позиція (щоб був слайд зліва і справа)
-// slider.style.transform = `translateX(-${slideWidth * index}px)`;
-
-// // NEXT
-// function moveNext() {
-//   if (index >= slider.children.length - 1) return;
-//   index++;
-//   slider.style.transition = 'transform 0.5s ease';
-//   slider.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// // PREV
-// function movePrev() {
-//   if (index <= 0) return;
-//   index--;
-//   slider.style.transition = 'transform 0.5s ease';
-//   slider.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// // Після анімації — тихо повертаємось
-// slider.addEventListener('transitionend', () => {
-//   const slides = document.querySelectorAll('.slide');
-
-//   if (slides[index].classList.contains('clone')) {
-//     slider.style.transition = 'none';
-
-//     if (index === slides.length - 1) {
-//       index = 1;
-//     } else if (index === 0) {
-//       index = slides.length - 2;
-//     }
-
-//     slider.style.transform = `translateX(-${slideWidth * index}px)`;
-//   }
-// });
-
-// // кнопки
-// nextBtn.addEventListener('click', () => {
-//   stopAuto();
-//   moveNext();
-//   startAuto();
-// });
-
-// prevBtn.addEventListener('click', () => {
-//   stopAuto();
-//   movePrev();
-//   startAuto();
-// });
-
-// // ⏱ Автоскрол
-// function startAuto() {
-//   interval = setInterval(moveNext, 3000);
-// }
-
-// function stopAuto() {
-//   clearInterval(interval);
-// }
-
-// startAuto();
-
-
-
-
-
-
-// const track = document.querySelector('.slider-track');
-// const slides = document.querySelectorAll('.slide');
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-
-// const slideWidth = slides[0].offsetWidth + 30; // ширина + gap
-// let isAnimating = false;
-
-// /* Додаємо по одному слайду з кожного боку */
-// track.insertBefore(slides[slides.length - 1].cloneNode(true), track.firstChild);
-// track.appendChild(slides[0].cloneNode(true));
-
-// let position = -slideWidth;
-// track.style.transform = `translateX(${position}px)`;
-
-// /* NEXT */
-// function moveNext() {
-//   if (isAnimating) return;
-//   isAnimating = true;
-
-//   position -= slideWidth;
-//   track.style.transition = 'transform 0.5s ease';
-//   track.style.transform = `translateX(${position}px)`;
-
-//   setTimeout(() => {
-//     track.style.transition = 'none';
-//     track.appendChild(track.firstElementChild);
-//     position += slideWidth;
-//     track.style.transform = `translateX(${position}px)`;
-//     isAnimating = false;
-//   }, 500);
-// }
-
-// /* PREV */
-// function movePrev() {
-//   if (isAnimating) return;
-//   isAnimating = true;
-
-//   position += slideWidth;
-//   track.style.transition = 'transform 0.5s ease';
-//   track.style.transform = `translateX(${position}px)`;
-
-//   setTimeout(() => {
-//     track.style.transition = 'none';
-//     track.insertBefore(track.lastElementChild, track.firstElementChild);
-//     position -= slideWidth;
-//     track.style.transform = `translateX(${position}px)`;
-//     isAnimating = false;
-//   }, 500);
-// }
-
-// nextBtn.addEventListener('click', moveNext);
-// prevBtn.addEventListener('click', movePrev);
-
-// /* Автопрокрутка */
-// setInterval(moveNext, 3000);
-
-
-// const cartList = document.getElementById("cart");
-
-// // отримати кошик
-// function getCart() {
-//   return JSON.parse(localStorage.getItem("cart")) || [];
-// }
-
-// // зберегти кошик
-// function saveCart(cart) {
-//   localStorage.setItem("cart", JSON.stringify(cart));
-// }
-
-// // додати товар
-// function addToCart(product) {
-//   const cart = getCart();
-//   const item = cart.find(el => el.id === product.id);
-
-//   if (item) {
-//     item.quantity++;
-//   } else {
-//     cart.push({ ...product, quantity: 1 });
-//   }
-
-//   saveCart(cart);
-//   renderCart();
-// }
-
-// // відмалювати кошик
-// function renderCart() {
-//   cartList.innerHTML = "";
-
-//   const cart = getCart();
-
-//   cart.forEach(item => {
-//     const li = document.createElement("li");
-//     li.textContent = `${item.name} — ${item.quantity} шт. (${item.price * item.quantity} грн)`;
-
-//     // 🔥 тут використовується insertAdjacentElement
-//     cartList.insertAdjacentElement("beforeend", li);
-//   });
-// }
-
-// // обробка кліків
-// document.addEventListener("click", e => {
-//   if (e.target.tagName === "a" && e.target.dataset.id) {
-//     addToCart({
-//       id: Number(e.target.dataset.id),
-//       name: e.target.dataset.name,
-//       price: Number(e.target.dataset.price)
-//     });
-//   }
-// });
-
-// // відновлення кошика
-// renderCart();
-
-
-// const cartEl = document.getElementById("cart");
-
-// // --- localStorage ---
-// function getCart() {
-//   return JSON.parse(localStorage.getItem("cart")) || [];
-// }
-
-// function saveCart(cart) {
-//   localStorage.setItem("cart", JSON.stringify(cart));
-// }
-
-// // --- додавання ---
-// function addToCart(product) {
-//   const cart = getCart();
-//   const item = cart.find(el => el.id === product.id);
-
-//   if (item) {
-//     item.quantity++;
-//   } else {
-//     cart.push({ ...product, quantity: 1 });
-//   }
-
-//   saveCart(cart);
-//   renderCart();
-// }
-
-// // --- рендер кошика ---
-// function renderCart() {
-//   cartEl.innerHTML = "";
-
-//   const cart = getCart();
-
-//   cart.forEach(item => {
-//     const li = document.createElement("li");
-//     li.classList.add("cart-item");
-
-//     // 🖼 фото
-//     const img = document.createElement("img");
-//     img.src = item.img;
-//     img.alt = item.name;
-//     img.classList.add("cart-img");
-
-//     // 📄 текст
-//     const info = document.createElement("div");
-//     info.classList.add("cart-info");
-//     info.textContent = `${item.name} × ${item.quantity} — ${item.price * item.quantity} грн`;
-
-//     li.insertAdjacentElement("beforeend", img);
-//     li.insertAdjacentElement("beforeend", info);
-
-//     cartEl.insertAdjacentElement("beforeend", li);
-//   });
-// }
-
-// // --- обробка кліку ---
-// document.addEventListener("click", e => {
-//   if (e.target.tagName === "A" && e.target.dataset.id) {
-//     e.preventDefault();
-
-//     const card = e.target.closest(".hover");
-//     const imgSrc = card.querySelector("img").src;
-
-//     addToCart({
-//       id: Number(e.target.dataset.id),
-//       name: e.target.dataset.name,
-//       price: Number(e.target.dataset.price),
-//       img: imgSrc
-//     });
-//   }
-// });
-
-// // --- відновлення ---
-// renderCart();
-
-
-
+//кошик
 const cartModal = document.getElementById("cart-modal");
 const cartEl = document.getElementById("cart");
 
@@ -697,9 +383,12 @@ function renderCart() {
     remove.style.fontSize = '10px'
     remove.onclick = () => removeItem(item.id);
 
+    // const price = 500 * `${item.quantity}`;
+
     li.insertAdjacentElement("beforeend", img);
     li.insertAdjacentElement("beforeend", text);
     li.insertAdjacentElement("beforeend", remove);
+    // li.insertAdjacentElement("beforeend", price);
 
     cartEl.insertAdjacentElement("beforeend", li);
   });
@@ -733,3 +422,129 @@ document.addEventListener("click", e => {
 });
 
 renderCart();
+
+
+//підтвердження правильності вводу даних
+const form = document.getElementById('contactForm');
+const popup = document.getElementById('popup');
+const popupText = document.getElementById('popupText');
+const cancelBtn = document.getElementById('cancel');
+const acceptBtn = document.getElementById('accept');
+
+let formData = {};
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  formData = {
+    name: form.name.value.trim(),
+    email: form.email.value.trim(),
+    subject: form.subject.value.trim(),
+    company: form.company.value.trim(),
+    message: form.message.value.trim(),
+  };
+
+  popupText.innerHTML = `
+    Name: ${formData.name}<br>
+    Email: ${formData.email}<br>
+    Subject: ${formData.subject}<br>
+    Company: ${formData.company}<br>
+    Message: ${formData.message}
+  `;
+  popupText.style.fontSize = '16rem'
+  popupText.style.color = '#555555'
+
+  popup.classList.remove('hidden');
+});
+
+cancelBtn.addEventListener('click', () => {
+  popup.classList.add('hidden');
+});
+
+acceptBtn.addEventListener('click', () => {
+  localStorage.setItem('contactForm', JSON.stringify(formData));
+  popup.classList.add('hidden');
+  form.reset();
+});
+
+const savedData = localStorage.getItem('contactForm');
+
+if (savedData) {
+  const data = JSON.parse(savedData);
+
+  form.name.value = data.name || '';
+  form.email.value = data.email || '';
+  form.subject.value = data.subject || '';
+  form.company.value = data.company || '';
+  form.message.value = data.message || '';
+}
+
+
+//слайдер з цитатами
+const quotesSlider = document.getElementById('quotes-slider');
+const quotes = document.querySelectorAll('.quote');
+const radios = document.querySelectorAll('.controls input');
+
+let current = 0;
+let timerId = null;
+let isPaused = false;
+const delay = 4000;
+
+// показ слайда
+function showSlide(index) {
+  if (index === current) return;
+
+  const currentSlide = quotes[current];
+  const nextSlide = quotes[index];
+
+  currentSlide.classList.remove('active');
+  currentSlide.classList.add('exit-left');
+
+  nextSlide.classList.add('active');
+
+  radios.forEach(r => r.checked = false);
+  radios[index].checked = true;
+
+  setTimeout(() => {
+    currentSlide.classList.remove('exit-left');
+  }, 600);
+
+  current = index;
+}
+
+// автопрокрутка 
+function autoSlide() {
+  if (isPaused) return;
+
+  const next = (current + 1) % quotes.length;
+  showSlide(next);
+
+  timerId = setTimeout(autoSlide, delay);
+}
+
+// пауза
+function pause() {
+  isPaused = true;
+  clearTimeout(timerId);
+}
+
+function resume() {
+  if (!isPaused) return;
+  isPaused = false;
+  autoSlide();
+}
+
+// radio-кнопки
+radios.forEach((radio, index) => {
+  radio.addEventListener('change', () => {
+    pause();
+    showSlide(index);
+    resume();
+  });
+});
+
+// hover
+quotesSlider.addEventListener('mouseenter', pause);
+quotesSlider.addEventListener('mouseleave', resume);
+
+autoSlide();

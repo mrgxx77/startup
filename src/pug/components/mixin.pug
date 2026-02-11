@@ -19,6 +19,22 @@ mixin menu(mainMenu)
                 for item in mainMenu
                     li
                         a(href=item[1] class=item[0]) #{item[0]}
+            .basket
+                <div id="cart-button"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M221-120q-27 0-48-16.5T144-179L42-549q-5-19 6.5-35T80-600h190l176-262q5-8 14-13t19-5q10 0 19 5t14 13l176 262h192q20 0 31.5 16t6.5 35L816-179q-8 26-29 42.5T739-120H221Zm-1-80h520l88-320H132l88 320Zm316.5-103.5Q560-327 560-360t-23.5-56.5Q513-440 480-440t-56.5 23.5Q400-393 400-360t23.5 56.5Q447-280 480-280t56.5-23.5ZM367-600h225L479-768 367-600Zm113 240Z"/></svg></div>
+
+                <div id="cart-modal" class="hidden">
+                    <div class="cart-window">
+                        <a id="close-cart">X</a>
+
+                        <h2>Кошик</h2>
+
+                        <ul id="cart"></ul>
+
+                        <div class="cart-actions">
+                            <a class="clear-cart" id="clear-cart">Очистити кошик</a>
+                        </div>
+                    </div>
+                </div>
 
 -
     let cardInfo = {
@@ -189,11 +205,12 @@ mixin blog(oneCard)
                                 p #{oneCard.title}
                                 p.by 
                                     i #{oneCard.by}
-                        ul.description
-                            for item in oneCard.description 
-                                li #{item}
-                            .more
-                                for item in oneCard.more 
+                        .toggle-block
+                            ul.description
+                                for item in oneCard.description 
                                     li #{item}
-                        p.read 
-                            a #{oneCard.read}
+                                .more.toggle-text
+                                    for item in oneCard.more 
+                                        li #{item}
+                            p.read.toggle-btn
+                                a #{oneCard.read}
