@@ -67,7 +67,7 @@ html(lang="en")
                 button.nav.prev <
                 .viewport
                     .slider-track
-                        .slider.flex-between
+                        .slider
                             .slide 
                                 +persons(personnel.head)
                             .slide 
@@ -237,14 +237,17 @@ html(lang="en")
                             p.info E-mail
                             p shapedtheme@gmail.com
                             p khalilkode@gmail.com
-                form(id='contactForm').inputs.flex-center
-                    <input type="text" name="name" placeholder="Your name">
-                    <input type="email" name="email" placeholder="Your E-mail">
-                    <input type="text" name="subject" placeholder="Your subject">
-                    <input type="text" name="company" placeholder="Company name">
+                form(id='contactForm').inputs
+                    .flex-center
+                        <input type="text" name="name" placeholder="Your name">
+                        <input type="email" name="email" placeholder="Your E-mail">
+                    .flex-center
+                        <input type="text" name="subject" placeholder="Your subject">
+                        <input type="text" name="company" placeholder="Company name">
                     <input type="text" class="text" name="message" placeholder="Write your message">
-                    input(type="submit" placeholder="Send message").send
-                    p * We’ll contact you as as possible. We don’t reply on Monday.
+                    .flex-center
+                        input(type="submit" placeholder="Send message").send
+                        p * We’ll contact you as as possible. We don’t reply on Monday.
                 
                 .popup(id="popup").hidden
                     <div class="popup-content">
