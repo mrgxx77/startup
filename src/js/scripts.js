@@ -257,38 +257,63 @@ let index;
 let slideWidth;
 let autoInterval;
 let resizeTimeout;
-const gap = parseFloat(getComputedStyle(slider).columnGap);
+let gap = 0;
+let flag = false;
+
+// function createClones() {
+//   document.querySelectorAll('.clone').forEach(clone => clone.remove());
+
+//   slides = document.querySelectorAll('.slide:not(.clone)');
+
+//   // for (let i = 0; i < slidesPerView; i++) {
+//   //   const firstClone = slides[i].cloneNode(true);
+//   //   const lastClone = slides[slides.length - 1 - i].cloneNode(true);
+
+//   //   firstClone.classList.add('clone');
+//   //   lastClone.classList.add('clone');
+
+//   //   slider.appendChild(firstClone);
+//   //   slider.insertBefore(lastClone, slider.firstChild);
+//   // }
+//   for(let i = slidesPerView - 1; i >= 0; i--) {
+//     const clone = slides[i].cloneNode(true);
+//     clone.classList.add('clone');
+//     slider.appendChild(clone);
+//   }
+//   for(let i = slides.length - 1; i >= slides.length - slidesPerView; i--) {
+//     const clone = slides[i].cloneNode(true);
+//     clone.classList.add('clone');
+//     slider.insertBefore(clone, slider.firstChild);
+//   }
+
+//   slides = document.querySelectorAll('.slide'); 
+// }
 
 function createClones() {
   document.querySelectorAll('.clone').forEach(clone => clone.remove());
-
   slides = document.querySelectorAll('.slide:not(.clone)');
-
-  // for (let i = 0; i < slidesPerView; i++) {
-  //   const firstClone = slides[i].cloneNode(true);
-  //   const lastClone = slides[slides.length - 1 - i].cloneNode(true);
-
-  //   firstClone.classList.add('clone');
-  //   lastClone.classList.add('clone');
-
-  //   slider.appendChild(firstClone);
-  //   slider.insertBefore(lastClone, slider.firstChild);
-  // }
-  for(let i = slidesPerView - 1; i >= 0; i--) {
+  originalCount = slides.length;
+  
+  // Клонуємо всі оригінальні слайди в кінець
+  for (let i = 0; i < originalCount; i++) {
     const clone = slides[i].cloneNode(true);
     clone.classList.add('clone');
     slider.appendChild(clone);
   }
-  for(let i = slidesPerView - 1; i >= slides.length - slidesPerView; i--) {
+  
+  // Клонуємо всі оригінальні слайди на початок
+  for (let i = originalCount - 1; i >= 0; i--) {
     const clone = slides[i].cloneNode(true);
     clone.classList.add('clone');
     slider.insertBefore(clone, slider.firstChild);
   }
-
-  slides = document.querySelectorAll('.slide'); 
+  
+  slides = document.querySelectorAll('.slide');
 }
 
+
 function updateSliderPosition() {
+  gap = parseFloat(getComputedStyle(slider).columnGap);
   slideWidth = slides[0].offsetWidth;
   track.style.transition = 'none';
   index = slidesPerView;
@@ -311,6 +336,8 @@ window.addEventListener('resize', () => {
 });
 
 function moveNext() {
+  if(flag) return 
+  flag = true
   index++;
   track.style.transition = 'transform 0.6s ease';
   track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
@@ -319,6 +346,8 @@ function moveNext() {
 
 }
 function movePrev() {
+  if(flag) return 
+  flag = true
   index--;
   track.style.transition = 'transform 0.6s ease';
   track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
@@ -329,19 +358,47 @@ function movePrev() {
 
 
 
+// track.addEventListener('transitionend', () => {
+//   slides = [...document.querySelectorAll('.slide')]
+//   if (index >= slides.length) {
+//     const firstSlide = slides[0]
+//     const clone = firstSlide.cloneNode(true)
+//     slider.appendChild(clone) 
+//     gap = parseFloat(getComputedStyle(slider).columnGap);
+//     slideWidth = slides[0].offsetWidth
+//     track.style.transition = 'none';
+//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+//   }
+//   if (index < 0) {
+//     const lastSlide = slides[slides.length - 1]
+//     const clone = lastSlide.cloneNode(true)
+//     slider.insertBefore(clone, slider.firstChild);
+//     gap = parseFloat(getComputedStyle(slider).columnGap);
+//     slideWidth = slides[0].offsetWidth;
+//     track.style.transition = 'none';
+//     index++
+//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+//   }
+// });
+
 track.addEventListener('transitionend', () => {
-  const originalLength = slides.length / 3
-  if (index < originalLength) {
+  // Дійшли до правих клонів
+  if (index >= originalCount * 2) {
     track.style.transition = 'none';
-    index = originalLength;
+    index = originalCount;
     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
   }
-  if (index >= originalLength * 2) {
+  
+  // Дійшли до лівих клонів
+  if (index < originalCount) {
     track.style.transition = 'none';
-    index = originalLength * 2 - 1;
+    index = originalCount * 2 - 1;
     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
   }
+  
+  flag = false;
 });
+
 
 nextBtn.addEventListener('click', () => {
   stopAuto();
