@@ -329,18 +329,19 @@ function movePrev() {
 
 
 
-// track.addEventListener('transitionend', () => {
-//   if (index < slidesPerView) {
-//     track.style.transition = 'none';
-//     index = slides.length - slidesPerView * 2;
-//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
-//   }
-//   if (index >= slides.length - slidesPerView) {
-//     track.style.transition = 'none';
-//     index = slidesPerView;
-//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
-//   }
-// });
+track.addEventListener('transitionend', () => {
+  const originalLength = slides.length / 3
+  if (index < originalLength) {
+    track.style.transition = 'none';
+    index = originalLength;
+    track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+  }
+  if (index >= originalLength * 2) {
+    track.style.transition = 'none';
+    index = originalLength * 2 - 1;
+    track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+  }
+});
 
 nextBtn.addEventListener('click', () => {
   stopAuto();
