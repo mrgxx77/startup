@@ -244,94 +244,6 @@ document.querySelectorAll('.toggle-block').forEach(block => {
 
 // слайдер
 
-// const wrapper = document.querySelector('.slider-wrapper');
-// const track = document.querySelector('.slider-track');
-// const slider = document.querySelector('.slider');
-// const slides = document.querySelectorAll('.slide');
-
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-
-// let slidesPerView = 4;
-// let index = slidesPerView;
-// let slideWidth;
-// let autoInterval;
-
-// for (let i = 0; i < slidesPerView; i++) {
-//   const firstClone = slides[i].cloneNode(true);
-//   const lastClone = slides[slides.length - 1 - i].cloneNode(true);
-
-//   slider.appendChild(firstClone);
-//   slider.insertBefore(lastClone, slider.firstChild);
-// }
-
-// const allSlides = document.querySelectorAll('.slide');
-
-// function updateSliderPosition() {
-//   slideWidth = allSlides[0].offsetWidth;
-//   track.style.transition = 'none';
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// updateSliderPosition();
-//   window.addEventListener('resize', updateSliderPosition);
-
-// function moveNext() {
-//   index++;
-//   track.style.transition = 'transform 0.6s ease';
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// function movePrev() {
-//   index--;
-//   track.style.transition = 'transform 0.6s ease';
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// track.addEventListener('transitionend', () => {
-
-//   if (index >= allSlides.length - slidesPerView) {
-//     track.style.transition = 'none';
-//     index = slidesPerView;
-//     track.style.transform = `translateX(-${slideWidth * index}px)`;
-//   }
-
-//   if (index < slidesPerView) {
-//     track.style.transition = 'none';
-//     index = allSlides.length - slidesPerView * 2;
-//     track.style.transform = `translateX(-${slideWidth * index}px)`;
-//   }
-
-// });
-
-// nextBtn.addEventListener('click', () => {
-//   stopAuto();
-//   moveNext();
-//   startAuto();
-// });
-
-// prevBtn.addEventListener('click', () => {
-//   stopAuto();
-//   movePrev();
-//   startAuto();
-// });
-
-// function startAuto() {
-//   autoInterval = setInterval(moveNext, 5000);
-// }
-
-// function stopAuto() {
-//   clearInterval(autoInterval);
-// }
-
-// wrapper.addEventListener('mouseenter', stopAuto);
-// wrapper.addEventListener('mouseleave', startAuto);
-
-// startAuto();
-
-
-
-
 const wrapper = document.querySelector('.slider-wrapper');
 const track = document.querySelector('.slider-track');
 const slider = document.querySelector('.slider');
@@ -340,18 +252,13 @@ let slides = document.querySelectorAll('.slide');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
 
-let slidesPerView = 4;
+let slidesPerView = 4
 let index;
 let slideWidth;
 let autoInterval;
 let resizeTimeout;
 
-// =====================
-// КЛОНИРОВАНИЕ СЛАЙДОВ
-// =====================
-
 function createClones() {
-  // удаляем старые клоны
   document.querySelectorAll('.clone').forEach(clone => clone.remove());
 
   slides = document.querySelectorAll('.slide:not(.clone)');
@@ -367,23 +274,16 @@ function createClones() {
     slider.insertBefore(lastClone, slider.firstChild);
   }
 
-  slides = document.querySelectorAll('.slide'); // обновляем NodeList
+  slides = document.querySelectorAll('.slide'); 
 }
 
-// =====================
-// УСТАНОВКА ПОЗИЦИИ
-// =====================
-
 function updateSliderPosition() {
-  slideWidth = slides[0].offsetWidth;
+  const gap = parseFloat(getComputedStyle(slider).columnGap);
+  slideWidth = slides[0].offsetWidth + gap;
   track.style.transition = 'none';
   index = slidesPerView;
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
-
-// =====================
-// ИНИЦИАЛИЗАЦИЯ
-// =====================
 
 function initSlider() {
   createClones();
@@ -392,9 +292,6 @@ function initSlider() {
 
 initSlider();
 
-// =====================
-// RESIZE (debounce)
-// =====================
 
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
@@ -402,10 +299,6 @@ window.addEventListener('resize', () => {
     initSlider();
   }, 200);
 });
-
-// =====================
-// ДВИЖЕНИЕ
-// =====================
 
 function moveNext() {
   index++;
@@ -419,28 +312,18 @@ function movePrev() {
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
-// =====================
-// БЕСКОНЕЧНОСТЬ
-// =====================
-
 track.addEventListener('transitionend', () => {
-  // слева
   if (index < slidesPerView) {
     track.style.transition = 'none';
     index = slides.length - slidesPerView * 2;
     track.style.transform = `translateX(-${slideWidth * index}px)`;
   }
-  // справа
   if (index >= slides.length - slidesPerView) {
     track.style.transition = 'none';
     index = slidesPerView;
     track.style.transform = `translateX(-${slideWidth * index}px)`;
   }
 });
-
-// =====================
-// КНОПКИ
-// =====================
 
 nextBtn.addEventListener('click', () => {
   stopAuto();
@@ -454,10 +337,6 @@ prevBtn.addEventListener('click', () => {
   startAuto();
 });
 
-// =====================
-// АВТОПРОКРУТКА
-// =====================
-
 function startAuto() {
   autoInterval = setInterval(moveNext, 3000);
 }
@@ -470,129 +349,6 @@ wrapper.addEventListener('mouseenter', stopAuto);
 wrapper.addEventListener('mouseleave', startAuto);
 
 startAuto();
-
-
-
-
-
-
-// const wrapper = document.querySelector('.slider-wrapper');
-// const track = document.querySelector('.slider-track');
-// const slider = document.querySelector('.slider');
-// const slides = document.querySelectorAll('.slide');
-
-// const prevBtn = document.querySelector('.prev');
-// const nextBtn = document.querySelector('.next');
-
-// let slidesPerView = 4;
-// let index = slidesPerView;
-// let slideWidth;
-// let autoInterval;
-// let resizeTimeout;
-
-// function createClones() {
-
-//   document.querySelectorAll('.clone').forEach(clone => clone.remove());
-
-//   const currentSlides = document.querySelectorAll('.slide:not(.clone)');
-
-//   for (let i = 0; i < slidesPerView; i++) {
-
-//     const firstClone = currentSlides[i].cloneNode(true);
-//     const lastClone = currentSlides[currentSlides.length - 1 - i].cloneNode(true);
-
-//     firstClone.classList.add('clone');
-//     lastClone.classList.add('clone');
-
-//     slider.appendChild(firstClone);
-//     slider.insertBefore(lastClone, slider.firstChild);
-//   }
-// }
-
-
-// function updateSliderPosition() {
-//   const allSlides = document.querySelectorAll('.slide');
-//   track.style.transition = 'none';
-//   track.style.transform = 'translateX(0px)';
-//   slideWidth = allSlides[0].offsetWidth;
-//   index = slidesPerView;
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// function initSlider() {
-//   createClones();
-//   updateSliderPosition();
-// }
-
-// initSlider();
-
-// window.addEventListener('resize', () => {
-
-//   clearTimeout(resizeTimeout);
-
-//   resizeTimeout = setTimeout(() => {
-
-//     initSlider();
-
-//   }, 200);
-
-// });
-
-// function moveNext() {
-//   index++;
-//   track.style.transition = 'transform 0.6s ease';
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// function movePrev() {
-//   index--;
-//   track.style.transition = 'transform 0.6s ease';
-//   track.style.transform = `translateX(-${slideWidth * index}px)`;
-// }
-
-// track.addEventListener('transitionend', () => {
-
-//   const allSlides = document.querySelectorAll('.slide');
-
-//   if (index >= allSlides.length - slidesPerView) {
-//     track.style.transition = 'none';
-//     index = slidesPerView;
-//     track.style.transform = `translateX(-${slideWidth * index}px)`;
-//   }
-
-//   if (index < slidesPerView) {
-//     track.style.transition = 'none';
-//     index = allSlides.length - slidesPerView * 2;
-//     track.style.transform = `translateX(-${slideWidth * index}px)`;
-//   }
-
-// });
-
-// nextBtn.addEventListener('click', () => {
-//   stopAuto();
-//   moveNext();
-//   startAuto();
-// });
-
-// prevBtn.addEventListener('click', () => {
-//   stopAuto();
-//   movePrev();
-//   startAuto();
-// });
-
-// function startAuto() {
-//   autoInterval = setInterval(moveNext, 3000);
-// }
-
-// function stopAuto() {
-//   clearInterval(autoInterval);
-// }
-
-// wrapper.addEventListener('mouseenter', stopAuto);
-// wrapper.addEventListener('mouseleave', startAuto);
-
-// startAuto();
-
 
 
 
@@ -663,12 +419,10 @@ function renderCart() {
     remove.style.fontSize = '10px'
     remove.onclick = () => removeItem(item.id);
 
-    // const price = 500 * `${item.quantity}`;
 
     li.insertAdjacentElement("beforeend", img);
     li.insertAdjacentElement("beforeend", text);
     li.insertAdjacentElement("beforeend", remove);
-    // li.insertAdjacentElement("beforeend", price);
 
     cartEl.insertAdjacentElement("beforeend", li);
   });

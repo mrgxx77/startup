@@ -249,34 +249,16 @@ html(lang="en")
                         input(type="submit" placeholder="Send message").send
                         p * We’ll contact you as as possible. We don’t reply on Monday.
                 
-                .popup(id="popup").hidden
-                    <div class="popup-content">
-                        <h3>Your data is accepted.</h3>
-                        <p id="popupText"></p>
+        .accept
+            .popup(id="popup").hidden
+                <div class="popup-content">
+                    <h3>Your data is accepted.</h3>
+                    <p id="popupText"></p>
 
-                        .flex-between
-                            <a id="cancel">Cancel</a>
-                            <a id="accept">Accept</a>
-                    </div>
-                    //- table 
-                    //-     tr
-                    //-         td
-                    //-             input(type="text" placeholder="Your name")
-                    //-         td
-                    //-             input(type="text" placeholder="Your E-mail")
-                    //-     tr
-                    //-         td 
-                    //-             input(type="email" placeholder="Your subject")
-                    //-         td 
-                    //-             input(type="text" placeholder="Company name")
-                    //-     tr
-                    //-         td(colspan="2")
-                    //-             input(type="text" placeholder="Write your message").text 
-                    //-     tr
-                    //-         td 
-                    //-             input(type="submit" placeholder="Send message")
-                    //-         td 
-                    //-             p * We’ll contact you as as possible. We don’t reply on Monday.
+                    .flex-between
+                        <a id="cancel">Cancel</a>
+                        <a id="accept">Accept</a>
+                </div>
         footer.fade-up
             .footer
                 .svg

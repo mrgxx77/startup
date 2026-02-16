@@ -15,7 +15,7 @@ mixin menu(mainMenu)
             a(href="index.html")
                 p Startup    
         nav.nav.menu.flex-between
-            ul.flex-between
+            ul
                 for item in mainMenu
                     li
                         a(href=item[1] class=item[0]) #{item[0]}
@@ -35,12 +35,11 @@ mixin menu(mainMenu)
                         </div>
                     </div>
                 </div>
-            span.new
+                span.new
 
 -
     let cardInfo = {
         typography: {
-            svg: "",
             href: "#",
             name: "Clean Typography",
             secondName: "Great Typography",
@@ -51,7 +50,6 @@ mixin menu(mainMenu)
             ],
         },
         rock: {
-            svg: "",
             href: "#",
             name: "Rock Solid Code",
             secondName: "Reliable code",
@@ -62,7 +60,6 @@ mixin menu(mainMenu)
             ],
         },
         expert: {
-            svg: "",
             href: "#",
             name: "Expert Support",
             secondName: "suppored by expert",

@@ -39,7 +39,6 @@ input[type="radio"]
     -webkit-appearance: none
     width: 18rem
     height: 18rem
-    //   border: 2rem solid #c0301c
     background-color: #dddddd
     border-radius: 50%
     cursor: pointer
@@ -96,18 +95,15 @@ li, a
     background-color: #ffffff
     transition: all 1s ease
 header 
-    // background-image: url(../img/startupbc.jpg')
     +dark('../img/startupbc.jpg')
     background-size: 110%
     position: relative
-    // padding-top: 20rem
     .fixed
         background-color: rgba(192, 48, 28, 0.3)
         position: fixed
         width: 100%
         z-index: 2
     .none
-        // display: flex
         justify-content: center
         column-gap: 20rem
         display: none
@@ -130,22 +126,17 @@ header
         z-index: 2
         transition: all .5s ease
         background-color: #c0301c
-        // width: 50%
         height: 100%
-        padding-left: 30rem
-        padding-right: 80rem
+        padding-right: 40rem
         ul
-            // padding-top: 20rem
             padding-top: 28rem
-            // display: flex
-            // text-align: center
             column-gap: 50rem
             padding-right: 20rem
         li
             margin-bottom: 20rem
         a:not(.clear-cart)
             padding-top: 5rem
-            font-size: 14rem
+            font-size: 20rem
             letter-spacing: 0rem
             line-height: 24rem
             color: #ffffff
@@ -154,41 +145,42 @@ header
     .new
         display: none
         position: absolute
-        right: 100rem
+        right: 0
         top: 43rem
         width: 10rem
         height: 10rem
         background-color: #000
         border-radius: 50%
-        // border: solid 10px #c0301c
     .basket
+        position: relative
         padding-top: 20rem
+        padding-left: 20rem
     
     +media(750) 
         .new
             top: 45rem
-            right: 95rem
+            right: 0
             background-color: #c0301c
         .burger 
             display: none
-        // .basket
-        //     top: 23rem
-        //     right: 20rem
         .menu 
-            // left: 0
             max-width: 100%
-            // right: 0
             background-color: rgba(110,69,226,0)
             position: static
             display: flex
+            a:not(.clear-cart)
+                font-size: 14rem
         ul
             display: flex
             justify-content: space-between
         .basket
             padding-top: 23rem
     .welcome
-        padding-top: 310rem
-        padding-bottom: 250rem
+        padding-top: 90rem
+        padding-bottom: 40rem
+        +media(560)
+            padding-top: 310rem
+            padding-bottom: 250rem
         h1 
             margin: 0
             font-size: 48rem
@@ -245,6 +237,7 @@ header
 #cart 
   list-style: none
   padding: 0
+  display: block
 .cart-item 
   display: flex
   align-items: center
@@ -273,7 +266,6 @@ header
     width: 500rem
     height: 520rem
     filter: drop-shadow(0 0 5rem rgba(192, 47, 28, 0.2))
-    // transition: all .5s ease
     .p
         font-family: "Roboto Slab"
         color: #555555
@@ -357,7 +349,6 @@ header
                 fill: #fff
             .b
                 fill: #c0301c
-            // fill: #fff
         svg:hover
             .a
                 fill: #c0301c
@@ -372,7 +363,6 @@ header
                 fill: #fff
             .b
                 fill: #c0301c
-            // fill: #fff
         svg:hover
             .a
                 fill: #c0301c
@@ -384,7 +374,6 @@ header
         svg
             background-color: #fff
             outline: 2.4rem solid #dddddd
-            // outline-offset: 18rem
             border-radius: 50%
             padding: 20rem
             .a
@@ -413,7 +402,6 @@ header
         position: relative
         padding-top: 15rem
     .texts
-        // padding-left: 30rem
         +media(750)
             display: flex
             column-gap: 25rem
@@ -432,23 +420,16 @@ header
         position: relative
     .viewport
         overflow: hidden
-        // width: 1350rem
         width: 100%
     .slider
         display: flex
-        // flex-wrap: wrap
-        // justify-content: center
-        justify-content: space-between
         flex-wrap: nowrap
-        // +media(1440)
-            // column-gap: 80rem
+        column-gap: 85rem
         p
             +p
             margin: 0
         .slide
             max-width: 260rem
-            // margin-left: 50rem
-            // margin-left: 80rem
         .card 
             padding: 0
             figure
@@ -514,11 +495,8 @@ header
   width: 100%
 .slider-track 
   transition: transform 0.6s ease
-// .slider 
-//   display: flex
 .slide 
-    // flex: 0 0 40%
-    flex: 0 0 calc(100% / 4)
+    flex: 0 0 calc((100% - 255rem) / 4)
     box-sizing: border-box
 .slider-track 
   display: flex
@@ -539,20 +517,13 @@ header
         display: flex
         flex-wrap: wrap
         justify-content: center
-        // column-gap: 20rem
-        // display: grid
-        // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
         gap: 20px
-        // margin-left: 20rem
         +media(750)
             display: flex
-            // column-gap: 20rem
         img
-            // display: none
             padding-bottom: 20rem
             max-width: 100%
         .hover
-            // margin-left: 20rem
             position: relative
             .img:hover + .div
                 display: block
@@ -583,12 +554,9 @@ header
                 text-align: center
             .a
                 text-align: center
-                // display: block
                 padding-top: 20rem
             a
-                // display: block
                 padding:10rem
-                // padding-top: 10rem
                 background-color: #fff
                 font-size: 14rem
                 letter-spacing: 1rem
@@ -597,7 +565,6 @@ header
                 color: #c0301c
                 font-weight: 400
                 font-family: "Roboto Slab"
-                // text-align: center   
                 cursor: pointer
                  
         .div:hover
@@ -617,10 +584,8 @@ header
         
 
 .doyou
-    // background-image: url("../img/startupback.png")
     +gradient('../img/startupback.png')
     background-size: 110%
-    // +gradient("../img/startupback.png")
     padding-top: 100rem
     padding-bottom: 80rem
     h2
@@ -664,7 +629,6 @@ header
         .info
             padding-top: 15rem
         ul
-            // justify-content: center
             margin: 0
             padding: 20rem 0
             li
@@ -794,7 +758,6 @@ header
     .cg
         padding-top: 30rem
         column-gap: 200rem
-        // justify-content: space-between
         +media(1024)
             flex-wrap: nowrap
             display: flex
@@ -802,12 +765,9 @@ header
     .flex-center
         display: flex
         flex-wrap: wrap
-        // justify-content: space-between
-        // row-gap: 0
         column-gap: 50rem
     svg
         padding-top: 5rem
-        // fill: #555555
     .flex
         display: flex
     .addres, .hotline
@@ -821,7 +781,6 @@ header
         +media(1024)
             justify-content: start 
     .inner
-        // justify-content: center
         padding-left: 15rem
         .info
             font-size: 14rem
@@ -835,13 +794,10 @@ header
             color: #555555
             font-weight: 400
             font-family: "Roboto Slab"
-            // text-align: center
     .inputs
         flex-wrap: wrap
-        // .td
         input
             margin-bottom: 10rem
-            // padding-top: 20rem
             width: 350rem
             height: 44rem
             padding-left: 15rem   
@@ -876,7 +832,6 @@ header
         p
             font-size: 12rem
             line-height: 20rem
-            // color: #c0301c
             color: #555555
             font-weight: 400
             font-family: "Roboto Slab"
@@ -886,13 +841,20 @@ header
             border: 2rem solid #c0301c
             filter: drop-shadow(0 0 2.5rem rgba(192, 47, 28, 0.184))
 
-    .popup 
+.accept
+    .popup
+        z-index: 1000
         position: fixed
         inset: 0
         background: rgba(0,0,0,.4)
+        width: 100%
+        height: 100%
         display: flex
         align-items: center
         justify-content: center
+        opacity: 1
+        visibility: visible
+        transition: opacity 0.4s ease, visibility 0.4s ease
         a
             font-size: 14rem
             color: #555555
@@ -900,9 +862,15 @@ header
         background: #fff
         padding: 20rem
         width: 300rem
+        transform: translateY(0)
+        transition: transform 0.4s ease
     .hidden 
-        display: none
-                     
+        opacity: 0
+        visibility: hidden
+        pointer-events: none
+        .popup-content
+            transform: translateY(-30rem)
+                 
 footer
     background-color: #c0301c
     .footer
