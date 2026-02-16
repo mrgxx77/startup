@@ -257,32 +257,42 @@ let index;
 let slideWidth;
 let autoInterval;
 let resizeTimeout;
+const gap = parseFloat(getComputedStyle(slider).columnGap);
 
 function createClones() {
   document.querySelectorAll('.clone').forEach(clone => clone.remove());
 
   slides = document.querySelectorAll('.slide:not(.clone)');
 
-  for (let i = 0; i < slidesPerView; i++) {
-    const firstClone = slides[i].cloneNode(true);
-    const lastClone = slides[slides.length - 1 - i].cloneNode(true);
+  // for (let i = 0; i < slidesPerView; i++) {
+  //   const firstClone = slides[i].cloneNode(true);
+  //   const lastClone = slides[slides.length - 1 - i].cloneNode(true);
 
-    firstClone.classList.add('clone');
-    lastClone.classList.add('clone');
+  //   firstClone.classList.add('clone');
+  //   lastClone.classList.add('clone');
 
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slider.firstChild);
+  //   slider.appendChild(firstClone);
+  //   slider.insertBefore(lastClone, slider.firstChild);
+  // }
+  for(let i = slidesPerView - 1; i >= 0; i--) {
+    const clone = slides[i].cloneNode(true);
+    clone.classList.add('clone');
+    slider.appendChild(clone);
+  }
+  for(let i = slidesPerView - 1; i >= slides.length - slidesPerView; i--) {
+    const clone = slides[i].cloneNode(true);
+    clone.classList.add('clone');
+    slider.insertBefore(clone, slider.firstChild);
   }
 
   slides = document.querySelectorAll('.slide'); 
 }
 
 function updateSliderPosition() {
-  const gap = parseFloat(getComputedStyle(slider).columnGap);
-  slideWidth = slides[0].offsetWidth + gap;
+  slideWidth = slides[0].offsetWidth;
   track.style.transition = 'none';
   index = slidesPerView;
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
+  track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
 }
 
 function initSlider() {
@@ -303,27 +313,34 @@ window.addEventListener('resize', () => {
 function moveNext() {
   index++;
   track.style.transition = 'transform 0.6s ease';
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
+  track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+  console.log(slideWidth);
+  console.log(track)
 
+}
 function movePrev() {
   index--;
   track.style.transition = 'transform 0.6s ease';
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
+  track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+  console.log(slideWidth);
+  console.log(track)
+
 }
 
-track.addEventListener('transitionend', () => {
-  if (index < slidesPerView) {
-    track.style.transition = 'none';
-    index = slides.length - slidesPerView * 2;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-  if (index >= slides.length - slidesPerView) {
-    track.style.transition = 'none';
-    index = slidesPerView;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
-});
+
+
+// track.addEventListener('transitionend', () => {
+//   if (index < slidesPerView) {
+//     track.style.transition = 'none';
+//     index = slides.length - slidesPerView * 2;
+//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+//   }
+//   if (index >= slides.length - slidesPerView) {
+//     track.style.transition = 'none';
+//     index = slidesPerView;
+//     track.style.transform = `translateX(-${(slideWidth + gap) * index}px)`;
+//   }
+// });
 
 nextBtn.addEventListener('click', () => {
   stopAuto();
